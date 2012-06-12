@@ -1,0 +1,119 @@
+.navbar .container {
+    width: 940px;
+}
+.dev-user-changer{
+  margin-top:3px;
+  opacity:0.8;
+}
+.dev-user-changer select{
+  margin-bottom:5px;
+}
+.form-search{
+  margin-bottom:0;
+}
+.form-search i {
+  margin: -20px 0 0 215px;
+  display: block;
+  position:absolute;
+}
+.card, .form, .new, .edit{
+  background-color: #F5F5F5;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+  margin-bottom: 20px;
+  min-height: 20px;
+  padding: 19px;
+}
+textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
+  border-color: rgba(82, 168, 236, 0.8);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+  outline: 0 none;
+}
+
+
+.actions:after {
+    clear: both;
+}
+.actions:before, .actions:after {
+    content: "";
+    display: table;
+}
+.actions:before, .actions:after {
+    content: "";
+    display: table;
+}
+.actions {
+    background-color: #F5F5F5;
+    border-top: 1px solid #DDDDDD;
+    margin-bottom: 18px;
+    margin-top: 18px;
+    padding: 17px 20px 18px;
+}
+.collection{
+  margin:0;
+}
+.collection li{
+  list-style:none;
+}
+.new-link, .edit-link{
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #F5F5F5;
+    background-image: -moz-linear-gradient(center top , white, #E6E6E6);
+    background-repeat: repeat-x;
+    border-color: #CCCCCC #CCCCCC #B3B3B3;
+    border-radius: 4px 4px 4px 4px;
+    border-style: solid;
+    border-width: 1px;
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    line-height: 18px;
+    margin-bottom: 10px;
+    padding: 4px 10px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    vertical-align: middle;
+    float: right;
+    margin-top: -30px;
+}
+.new-link{
+  margin-top: -40px;
+}
+.edit-link, new-link:hover {
+    -moz-transition: background-position 0.1s linear 0s;
+    background-color: #E6E6E6;
+    background-position: 0 -15px;
+    color: #333333;
+    text-decoration: none;
+}
+.edit-link, new-link.active, .new-link:active {
+    background-color: #E6E6E6;
+    background-image: none;
+    outline: 0 none;
+}
+
+
+
+fieldset.feckless-fields .field {
+    padding-left: 150px;
+}
+fieldset.feckless-fields .field, fieldset.feckless-fields .buttons {
+    margin: 0 0 1em;
+}
+fieldset.feckless-fields .field label {
+  clear: none;
+  display: inline;
+  float: left;
+  margin-left: -150px;
+  width: 140px;
+  font-weight: bold;
+  text-align: right;
+}
+
