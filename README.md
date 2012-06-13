@@ -3,6 +3,8 @@ hobo_bootstrap
 
 This is a theme for Hobo 1.4 (http://www.hobocentral.net) that implements the Bootstrap library (http://twitter.github.com/bootstrap/).
 
+[![login][1]][1]
+
 
 
 Install instructions
@@ -43,3 +45,6 @@ Rename front.css to front.scss so you can bootstrap and hobo_bootstrap like this
 Change the theme in app/views/taglibs/front_site.dryml:
 
     <include gem='hobo_bootstrap'/>
+    
+    
+  [1]: https://github.com/suyccom/hobo_bootstrap/raw/master/screenshots/agility-1.png
