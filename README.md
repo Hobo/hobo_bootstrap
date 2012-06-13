@@ -3,8 +3,8 @@ hobo_bootstrap
 
 This is a theme for Hobo 1.4 (http://www.hobocentral.net) that implements the Bootstrap library (http://twitter.github.com/bootstrap/).
 
-[![login][1]][1]
-
+[![front][1]][1]
+[![login][2]][2]
 
 
 Install instructions
@@ -48,3 +48,4 @@ Change the theme in app/views/taglibs/front_site.dryml:
     
     
   [1]: https://github.com/suyccom/hobo_bootstrap/raw/master/screenshots/agility-1.png
+  [2]: https://github.com/suyccom/hobo_bootstrap/raw/master/screenshots/agility-4.png
