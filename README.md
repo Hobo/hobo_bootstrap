@@ -49,3 +49,10 @@ Change the theme in app/views/taglibs/front_site.dryml:
     
   [1]: https://github.com/suyccom/hobo_bootstrap/raw/master/screenshots/agility-1.png
   [2]: https://github.com/suyccom/hobo_bootstrap/raw/master/screenshots/agility-4.png
+  
+  
+  
+Notes
+=====
+
+Right now, you still need to keep "hobo_clean" in your Gemfile if you want to use the Ajax search enabled by default in Hobo.
