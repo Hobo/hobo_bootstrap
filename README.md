@@ -15,7 +15,7 @@ Add this to your Gemfile
     gem "hobo_bootstrap", :git => "git://github.com/suyccom/hobo_bootstrap.git"
     group :assets do
       # ... Other stuff ... #
-      gem 'compass_twitter_bootstrap', :git => 'git://github.com/colvint/compass-twitter-bootstrap', :ref => '48fb6b4f7d'
+      gem 'compass_twitter_bootstrap', :git => 'git://github.com/wyuenho/compass-twitter-bootstrap'
       gem 'compass-rails'
     end
     

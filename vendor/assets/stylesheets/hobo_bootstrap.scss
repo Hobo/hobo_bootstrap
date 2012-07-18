@@ -1,11 +1,12 @@
-/* Top Menu: make sure it stays in the middle */
-.navbar .container {
-  width: 940px;
+.navbar-inner{
+  border-radius:0px;
 }
+
 /* Top menu tweaks */
 .dev-user-changer{
   margin-top:3px;
   opacity:0.8;
+  border-radius:4px;
 }
 .dev-user-changer select{
   margin-bottom:5px;
