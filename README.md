@@ -44,6 +44,10 @@ Rename front.css to front.scss so you can bootstrap and hobo_bootstrap like this
     @import "compass_twitter_bootstrap";
     @import "compass_twitter_bootstrap_responsive"
     
+Load bootstrap javascripts in app/assets/front.js, for example:
+
+    //= require bootstrap-collapse
+    
 Change the theme in app/views/taglibs/front_site.dryml:
 
     <include gem='hobo_bootstrap'/>

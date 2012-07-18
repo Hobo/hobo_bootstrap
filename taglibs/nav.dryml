@@ -108,6 +108,7 @@ This is a simple tag - just look at the source if you need to know more detail.
 
   -->
 <def tag="account-nav">
+  <div class="nav-collapse collapse">
   <do with="&current_user">
     <ul class="navigation account-nav nav pull-right" param>
     
@@ -126,4 +127,5 @@ This is a simple tag - just look at the source if you need to know more detail.
 
     </ul>
   </do>
+  </div>
 </def>

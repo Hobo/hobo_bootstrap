@@ -31,6 +31,11 @@
         <div class="navbar">
           <div class="navbar-inner">
             <header class="container" param>
+              <button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar" type="button">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
               <h1 param="app-name">
                 <a class="brand" href="#{base_url}/"><app-name/></a>
               </h1>
