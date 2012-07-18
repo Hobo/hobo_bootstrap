@@ -1,0 +1,59 @@
+<!-- This file is necessary, it was mostly cloned from the default Hobo theme -->
+<def tag="ajax-progress">
+  <div id="ajax-progress" class="ajax-progress" merge-attrs>
+    <div>
+      <span id="ajax-progress-text"></span>
+    </div>
+  </div>
+</def>
+
+<!-- Add bootstrap classes to the default page layout -->
+<def tag="page" attrs="title, full-title">
+  <% full_title ||= "#{title} : #{app_name}" %>
+  <html merge-attrs>
+    <head param>
+      <title param><%= strip_tags full_title %></title>
+      <do param="stylesheets"><%# in Hobo <= 1.3, we had other stylesheets here.   Now the asset pipeline is preferred. %>
+        <stylesheet name="#{subsite || 'front'}" param="app-stylesheet"/>
+      </do>
+
+      <do param="scripts"><%# in Hobo <= 1.3, we had other javascripts here.   Now the asset pipeline is preferred. %>
+        <javascript param="application-javascript" name="#{subsite || 'front'}"/>
+        <do param="custom-scripts"/>
+      </do>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <%= csrf_meta_tag %>
+    </head>
+
+    <body param>
+      <set-scoped flash-rendered="&false">
+        <ajax-progress param/>
+        <div class="navbar">
+          <div class="navbar-inner">
+            <header class="container" param>
+              <h1 param="app-name">
+                <a class="brand" href="#{base_url}/"><app-name/></a>
+              </h1>
+              <account-nav if="&login_url(Hobo::Model::UserBase.default_user_model)" param/>
+            </header>
+          </div>
+        </div>
+        <div class="container">
+          <div class="subnav">
+            <main-nav class="nav nav-pills" current="&title" param/>
+          </div>
+        </div>
+        
+        <section with-flash-messages class="container" param="content"/>
+
+        <footer class="page-footer" param/>
+        <page-scripts param/>
+      </set-scoped>
+    </body>
+  </html>
+</def>
+<def tag="simple-page">
+  <page without-live-search without-main-nav merge>
+    <account-nav: replace />
+  </page>
+</def>

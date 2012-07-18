@@ -1,6 +1,38 @@
+/* Top menu bar (app name, login...): 
+   It's full width so border-radius is unnecessary */
 .navbar-inner{
   border-radius:0px;
 }
+
+/* Main menu bar (model links): 
+   Code copied from bootstrap documentation */
+.subnav {
+    background-color: #EEEEEE;
+    background-image: -moz-linear-gradient(center top , #F5F5F5 0%, #EEEEEE 100%);
+    background-repeat: repeat-x;
+    border: 1px solid #E5E5E5;
+    border-radius: 4px 4px 4px 4px;
+    height: 36px;
+    width: 100%;
+}
+.subnav .nav > li > a {
+    border-left: 1px solid #F5F5F5;
+    border-radius: 0 0 0 0;
+    border-right: 1px solid #E5E5E5;
+    margin: 0;
+    padding-bottom: 11px;
+    padding-top: 11px;
+}
+
+
+
+
+
+
+
+
+
+
 
 /* Top menu tweaks */
 .dev-user-changer{

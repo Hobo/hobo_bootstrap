@@ -1,0 +1,15 @@
+<!-- Add some bootstrap classes to submit buttons -->
+<def tag="submit" attrs="label, image">
+  <input if="&image" type="image" src="&image" merge-attrs class="image-button submit-button"/>
+  <else>
+    <input type="submit" value="#{label}" merge-attrs class="btn btn-primary button submit-button"/>
+  </else>
+</def>
+
+
+<!-- Add bootstrap classes to new-link -->
+<extend tag="index-page">
+  <old-index-page merge>
+    <new-link: class="btn pull-right"/>
+  </old-index-page>
+</extend>
