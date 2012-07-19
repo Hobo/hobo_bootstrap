@@ -2,6 +2,13 @@
 <!--  <feckless-fieldset class="horizontal" merge/>-->
 <!--</def>-->
 
+
+
+
+
+
+
+
 <def tag="field-list">
   <bootstrap-fields merge/>
 </def>
@@ -33,12 +40,8 @@
 </def>
 
 
-
-
-
-
 <extend tag="form">
-  <old-form: class="form-horizontal well">
+  <old-form: class="form-horizontal" merge>
     <actions: class="form-actions"/>
   </old-form:>
 </extend>

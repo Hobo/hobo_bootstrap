@@ -10,7 +10,7 @@
 <!-- Add bootstrap classes to the default page layout -->
 <def tag="page" attrs="title, full-title">
   <% full_title ||= "#{title} : #{app_name}" %>
-  <html merge-attrs>
+  <html lang="en" merge-attrs>
     <head param>
       <title param><%= strip_tags full_title %></title>
       <do param="stylesheets"><%# in Hobo <= 1.3, we had other stylesheets here.   Now the asset pipeline is preferred. %>
