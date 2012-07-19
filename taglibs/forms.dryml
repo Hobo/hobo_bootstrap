@@ -1,0 +1,44 @@
+<!--<def tag="field-list">-->
+<!--  <feckless-fieldset class="horizontal" merge/>-->
+<!--</def>-->
+
+<def tag="field-list">
+  <bootstrap-fields merge/>
+</def>
+
+<def tag="bootstrap-fields" attrs="tag, no-edit, required, no-blanks">
+  <% tag ||= scope.in_form ? "input" : "view"; no_edit ||= "skip" -%>
+  <% required ||= "" ; required = comma_split(required.gsub('-', '_')) -%>
+  <legend param if="&all_parameters[:legend]" />
+  <with-fields merge-attrs="&attributes & attrs_for(:with_fields)">
+  <% field_name = this_field_name
+     input_attrs = {:no_edit => no_edit} if tag == "input" && no_edit == "disable"
+     field_method = scope.field_name.to_s.sub('?', '').gsub('.', '-')
+     id_for_this = param_name_for_this.gsub('[', '_').gsub(']', '')
+  -%>
+    <div class="control-group #{'required' if required.include?(scope.field_name)}" unless="&(tag == 'input' && no_edit == 'skip' && !can_edit?) || (tag == 'view' && no_blanks && this.blank?)" param="#{field_method}-field">
+      <label class="control-label" for="&id_for_this" param="#{field_method}-label" unless="&field_name.blank?">
+        <%= field_name %>
+      </label>
+      <div class="controls">
+        <do param="#{field_method}-view">
+          <do param="view"><call-tag tag="&tag" param="#{field_method}-tag" merge-attrs="&input_attrs"/></do>
+        </do>
+        <p param="#{field_method}-help" class="help-block" if="&tag.to_sym == :input && !this_field_help.blank?">
+          <%= this_field_help %>
+        </p>
+      </div>
+    </div>
+  </with-fields>
+</def>
+
+
+
+
+
+
+<extend tag="form">
+  <old-form: class="form-horizontal well">
+    <actions: class="form-actions"/>
+  </old-form:>
+</extend>

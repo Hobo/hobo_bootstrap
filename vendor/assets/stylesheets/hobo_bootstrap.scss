@@ -33,9 +33,16 @@
 
 
 
+/* Page heading */
+h2.heading{
+  margin:10px 0;
+}
+
+
+
 /* FIXME: Dirty hacks after here !! */
 /* Add 'well' class look to some elements: this should be improved */
-.card, .form, .new, .edit{
+/*.card, .form, .new, .edit{
   background-color: #F5F5F5;
   border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 4px 4px 4px 4px;
@@ -74,4 +81,4 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 .collection li{
   list-style:none;
 }
-
+*/

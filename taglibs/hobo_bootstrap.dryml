@@ -7,3 +7,6 @@
 <!-- Add some bootstrap classes to buttons -->
 <include src="buttons"/>
 
+<!-- Replace the forms -->
+<include src="forms"/>
+
