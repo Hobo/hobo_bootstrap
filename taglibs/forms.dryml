@@ -18,15 +18,21 @@
   <% required ||= "" ; required = comma_split(required.gsub('-', '_')) -%>
   <legend param if="&all_parameters[:legend]" />
   <with-fields merge-attrs="&attributes & attrs_for(:with_fields)">
+  
   <% field_name = this_field_name
      input_attrs = {:no_edit => no_edit} if tag == "input" && no_edit == "disable"
      field_method = scope.field_name.to_s.sub('?', '').gsub('.', '-')
      id_for_this = param_name_for_this.gsub('[', '_').gsub(']', '')
   -%>
-    <div class="control-group #{'required' if required.include?(scope.field_name)}" unless="&(tag == 'input' && no_edit == 'skip' && !can_edit?) || (tag == 'view' && no_blanks && this.blank?)" param="#{field_method}-field">
+    <div 
+      class="control-group #{'required' if required.include?(scope.field_name)}" 
+      unless="&(tag == 'input' && no_edit == 'skip' && !can_edit?) || (tag == 'view' && no_blanks && this.blank?)" 
+      param="#{field_method}-field">
+      
       <label class="control-label" for="&id_for_this" param="#{field_method}-label" unless="&field_name.blank?">
         <%= field_name %>
       </label>
+      
       <div class="controls">
         <do param="#{field_method}-view">
           <do param="view"><call-tag tag="&tag" param="#{field_method}-tag" merge-attrs="&input_attrs"/></do>
@@ -35,6 +41,7 @@
           <%= this_field_help %>
         </p>
       </div>
+      
     </div>
   </with-fields>
 </def>
@@ -45,3 +52,61 @@
     <actions: class="form-actions"/>
   </old-form:>
 </extend>
+
+
+
+
+
+
+
+
+
+
+<def tag="with-fields" attrs="size, columns, fields, associations, skip, skip-associations, include-timestamps, force-all"><%
+  fields.nil? || associations.nil? or raise ArgumentError, "with-fields -- specify either fields or associations but not both"
+
+  field_names = if associations == "has_many"
+                  this.class.reflections.values.select { |refl| refl.macro == :has_many }.map { |refl| refl.name.to_s }
+
+                elsif fields.nil? || fields == "*" || fields.is_a?(Class)
+                  klass = fields.is_a?(Class) ? fields : this.class
+                  columns = standard_fields(klass, include_timestamps)
+
+                  if skip_associations == "has_many"
+                    assocs = this.class.reflections.values.reject {|r| r.macro == :has_many }.map &its.name.to_s
+                    columns + assocs
+                  elsif skip_associations
+                    columns
+                  else
+                    assocs = klass.reflections.values.map &its.name.to_s
+                    columns + assocs
+                  end
+                else
+                  comma_split(fields.gsub('-', '_'))
+                end
+  field_names -= comma_split(skip) if skip
+  field_names = field_names.select {|f| can_view?(this, f)} unless force_all
+  columns = 1 unless columns
+  columns = columns.to_i
+  size = 12 unless size
+  size = size.to_i
+  span_size = size / columns.to_i
+  field_names_groups = field_names.in_groups(columns.to_i, false)
+  %><div class="row"> <%
+  field_names_groups.each do |field_names_group|
+    %> <div class="span#{span_size}"> <%
+    field_names_group.each do |field|
+      %><set-scoped field-name="&field"><%
+      if field == "this"
+        %><do param="default"/><%
+      else
+        %><with field="&field"><do param="default"/></with><%
+      end
+      %></set-scoped><%
+    end
+    %> </div> <%
+  end 
+  %> </div>
+</def>
+
+

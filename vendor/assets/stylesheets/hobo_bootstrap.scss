@@ -22,7 +22,7 @@
   margin-bottom:0;
 }
 .form-search i {
-  margin: -20px 0 0 200px;
+  margin: -20px 0 0 190px;
   display: block;
   position:absolute;
 }
@@ -34,8 +34,37 @@
 
 
 /* Page heading */
+.bootstrap-content{
+  margin-top:16px;
+}
 h2.heading{
-  margin:10px 0;
+  margin-bottom:10px;
+  line-height:24px;
+}
+
+
+
+
+/* Forms adjustments */
+input, textarea{
+  width:200px;
+}
+select{
+  width:210px;
+}
+@media (min-width: 980px) and (max-width: 1199px) {
+  input, textarea{
+    width:170px;
+  }
+  select{
+    width:180px;
+  }
+  .form-horizontal .control-label {
+    width: 100px;
+  }
+  .form-horizontal .controls {
+    margin-left: 120px;
+  }
 }
 
 

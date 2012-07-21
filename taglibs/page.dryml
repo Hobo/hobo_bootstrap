@@ -48,8 +48,21 @@
             <main-nav class="nav nav-pills" current="&title" param/>
           </div>
         </div>
-        
-        <section with-flash-messages class="container" param="content"/>
+        <% attributes[:content_size] = "12" unless attributes[:content_size] 
+        aside_span = "span" + (12 - attributes[:content_size].to_i).to_s
+        %>
+        <div class="container bootstrap-content">
+          <div class="row">
+            <div class="span#{attributes[:content_size]}">
+              <section with-flash-messages param="content"/>
+            </div>
+            <div class="#{aside_span}" if="&attributes[:content_size].to_i < 12">
+              <div class="well">
+                <section param="aside"/>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <footer class="page-footer" param/>
         <page-scripts param/>
