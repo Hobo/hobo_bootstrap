@@ -44,31 +44,6 @@ h2.heading{
 
 
 
-
-/* Forms adjustments */
-input, textarea{
-  width:200px;
-}
-select{
-  width:210px;
-}
-@media (min-width: 980px) and (max-width: 1199px) {
-  input, textarea{
-    width:170px;
-  }
-  select{
-    width:180px;
-  }
-  .form-horizontal .control-label {
-    width: 100px;
-  }
-  .form-horizontal .controls {
-    margin-left: 120px;
-  }
-}
-
-
-
 /* FIXME: Dirty hacks after here !! */
 /* Add 'well' class look to some elements: this should be improved */
 /*.card, .form, .new, .edit{

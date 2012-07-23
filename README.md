@@ -39,10 +39,10 @@ Rename front.css to front.scss so you can bootstrap and hobo_bootstrap like this
      *= require jquery-ui/redmond
      *= require hobo_bootstrap
      *= require hobo_bootstrap_docs
+     *= require hobo_bootstrap_responsive
      *= require_tree ./front
     */
     @import "compass_twitter_bootstrap";
-    @import "compass_twitter_bootstrap_responsive"
     
 Load bootstrap javascripts in app/assets/front.js, for example:
 
