@@ -10,3 +10,6 @@
 <!-- Replace the forms -->
 <include src="forms"/>
 
+<!-- Replace the login page -->
+<include src="login"/>
+
