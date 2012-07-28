@@ -25,7 +25,7 @@
           <t key="hobo.login.password">Password</t>
         </label>
         <div class="controls">
-          <input type="text" name="password" id="password" class="string" 
+          <input type="password" name="password" id="password" class="string" 
                 param="password-input"/>
         </div>
       </div>
