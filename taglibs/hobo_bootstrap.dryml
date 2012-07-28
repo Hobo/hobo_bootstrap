@@ -13,3 +13,5 @@
 <!-- Replace the login page -->
 <include src="login"/>
 
+<!-- Default index page modifications -->
+<include src="index_page"/>

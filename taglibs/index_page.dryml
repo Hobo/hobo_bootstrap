@@ -1,0 +1,31 @@
+<extend tag="index-page">
+  <old-index-page: merge>
+  
+    <new-link: class="btn pull-right"/>
+    <content-header: class="pull-left"/>
+  
+    <collection: replace>
+      <%
+        if this.first
+          klass = this.first.class
+          columns = standard_fields(klass)
+          field_names = columns.select {|f| can_view?(this.first, f)}
+          if can_edit?(this.first, field_names[0])
+            field_names << "actions"
+          end
+          field_names[0] = "this"
+          field_names = field_names.join(', ')
+        end
+      %>
+      <table class="table table-striped" without-header
+        fields="&field_names" param="collection">
+        <actions-view:>
+          <a with="&this_parent" action="edit">
+            <i class="icon icon-edit"></i>
+          </a>
+          <%= link_to '<i class=\'icon-trash\'></i>'.html_safe, this_parent, :confirm => t('hobo.messages.confirm', :default=>'Are you sure?'), method: :delete %>
+        </actions-view:>
+      </table>
+    </collection>
+  </old-index-page:>
+</extend>
