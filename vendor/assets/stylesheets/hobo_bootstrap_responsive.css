@@ -827,7 +827,7 @@ input, textarea{
 select{
   width:210px;
 }
-@media (min-width: 400px){
+@media (min-width: 500px){
   .form-horizontal .control-label {
     width: 100px;
   }
