@@ -908,6 +908,10 @@ select{
 
 
 @media (min-width: 1200px) {
+  .form-search i {
+    margin: -20px 0 0 191px;
+  }
+
   /* When the fields are within span3 on a bigger screen, make them smaller! */
   .span3 input, .span3 textarea{
     width: 150px;
@@ -926,5 +930,11 @@ select{
   }
   .columns .span9 select{
     width: 760px; /* sum 300px */
+  }
+}
+
+@media (max-width: 979px) {
+  .form-search i {
+    margin: -20px 0 0 191px;
   }
 }
