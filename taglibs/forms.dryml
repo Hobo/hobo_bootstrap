@@ -111,7 +111,7 @@
   %> </div>
 </def>
 
-
+<!-- This tag is used in multiple column forms, when you need a double sized field (address for example) that is still aligned with the rest -->
 <def tag="single-field-list" attrs="tag, no-edit, required, no-blanks">
   <% tag ||= scope.in_form ? "input" : "view"; no_edit ||= "skip" -%>
   <% required ||= "" ; required = comma_split(required.gsub('-', '_')) -%>
@@ -146,7 +146,7 @@
 </def>
 
 
-
+<!-- This tag is used in multiple column forms, when you need a double sized field (address for example) that is still aligned with the rest -->
 <def tag="with-single-fields" attrs="size, columns, fields, associations, skip, skip-associations, include-timestamps, force-all"><%
   fields.nil? || associations.nil? or raise ArgumentError, "with-fields -- specify either fields or associations but not both"
 
@@ -191,4 +191,56 @@
     end
   end 
   %>
+</def>
+
+
+
+
+
+
+
+
+<!-- This field list creates a field list in just one line using -->
+<def tag="one-line-field-list" attrs="tag, no-edit, required, no-blanks">
+  <% tag ||= scope.in_form ? "input" : "view"; no_edit ||= "skip" -%>
+  <% required ||= "" ; required = comma_split(required.gsub('-', '_')) -%>
+  <legend param if="&all_parameters[:legend]" />
+  <with-single-fields merge-attrs="&attributes & attrs_for(:with_fields)">
+  
+    <% field_name = this_field_name
+       input_attrs = {:no_edit => no_edit} if tag == "input" && no_edit == "disable"
+       field_method = scope.field_name.to_s.sub('?', '').gsub('.', '-')
+       id_for_this = param_name_for_this.gsub('[', '_').gsub(']', '')
+    -%>
+
+    <do param="#{field_method}-view">
+      <do param="view">
+        <call-tag tag="&tag" placeholder="&field_name" param="#{field_method}-tag" merge-attrs="&input_attrs"/>
+      </do>
+    </do>
+    <p param="#{field_method}-help" class="help-block" if="&tag.to_sym == :input && !this_field_help.blank?">
+      <%= this_field_help %>
+    </p>
+      
+  </with-single-fields>
+</def>
+
+
+
+
+<def tag="one-line-form" attrs="fields">
+  <div class="row">
+    <div class="span12">
+      <form class="inline-form well" merge-attrs>
+        <field-list: replace>
+          <one-line-field-list fields="&fields"/>
+        </field-list:>
+        <actions: replace>
+          <button class="btn" type="submit">
+            <t key="hobo.actions.create">Create</t>
+          </button>
+        </actions:>
+      </form>
+    </div>
+  </div>
 </def>
