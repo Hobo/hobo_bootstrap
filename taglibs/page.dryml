@@ -45,7 +45,7 @@
         </div>
         <div class="container">
           <div class="subnav" param="subnav">
-            <main-nav class="nav nav-pills" current="&title" param/>
+            <main-nav class="nav nav-pills" current="&title" include-search param/>
           </div>
         </div>
         <% attributes[:content_size] = "12" unless attributes[:content_size] 
