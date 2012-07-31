@@ -1,0 +1,88 @@
+<!-- Simple log-in form.
+
+### Attributes
+
+ - `user-model`: The User class
+ - all other attributes are passed on to `<form>`.   You will probably need to set the action attribute:  `action="&user_login_path"`.
+ -->
+<def tag="login-form" attrs="user-model">
+  <% user_model ||= self.try.model -%>
+  <form action="&request.fullpath" class="login" merge>
+  
+    <div param="field-list">
+      <div class="control-group login-field">      
+        <label param="login-label" class="control-label" for="login">
+          <t key="hobo.login.#{user_model.login_attribute}"><%= user_model.login_attribute.to_s.titleize %></t>
+        </label>
+        <div class="controls">
+          <input type="text" name="login" id="login" class="string" 
+                param="login-input" />
+        </div>
+      </div>
+      
+      <div class="control-group password-field">      
+        <label param="password-label" class="control-label" for="password">
+          <t key="hobo.login.password">Password</t>
+        </label>
+        <div class="controls">
+          <input type="password" name="password" id="password" class="string" 
+                param="password-input"/>
+        </div>
+      </div>
+      
+      <div class="control-group remember-me-field">      
+        <label param="remember-me-label" class="control-label" 
+               for="remember-me">
+          <t key="hobo.login.remember_me">Remember me</t>
+        </label>
+        <div class="controls">
+          <label class="checkbox">
+              <input type="checkbox" name="remember_me" id="remember-me"
+                 param="remember-me-input"/>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="actions form-actions" style="padding-left:110px;">
+      <input class="btn btn-primary button submit-button" type="submit"
+             value="#{t 'hobo.actions.login', :default=>['Log in'] }"/>  
+      <if test="&signup_url" class='nav-item'>
+        <t key="hobo.support.or">or</t> <a param="signup" href="&signup_url"><t key="hobo.login.signup">Sign up</t></a>
+      </if>
+      or <a href="&forgot_password_url" param="forgot-password" if="&forgot_password_url"><t key="hobo.login.forgot_password">Forgot your password?</t></a>
+    </div>
+
+  </form>
+</def>
+
+
+
+
+
+
+
+
+
+<!-- Simple log-in page  -->
+<def tag="login-page">
+  <% remember_me = true if remember_me.nil? %>
+  <simple-page title="#{t 'hobo.login.title', :default=>['Log in'] }" without-subnav merge>
+
+    <body: class="login-page" param/>
+
+    <content: param>
+      <div class="row">
+        <div class="span3">&nbsp;</div>
+        <div class="span6">
+          <section param="content-body" class="well" style="padding:50px 50px 10px 50px;">
+            <h2 param="heading"><t key="hobo.login.heading">Log In</t></h2>
+            <login-form param="form" user-model="&model"/>
+          </section>
+        </div>
+        <div class="span3">&nbsp;</div>
+      </div>
+    </content:>
+  </simple-page>
+</def>

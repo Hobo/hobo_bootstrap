@@ -6,10 +6,3 @@
   </else>
 </def>
 
-
-<!-- Add bootstrap classes to new-link -->
-<extend tag="index-page">
-  <old-index-page merge>
-    <new-link: class="btn pull-right"/>
-  </old-index-page>
-</extend>

@@ -135,7 +135,8 @@
   }
 }
 
-@media (max-width: 767px) {
+/*@media (max-width: 767px) {*/
+@media (max-width: 979px) {
   body {
     padding-right: 20px;
     padding-left: 20px;
@@ -198,7 +199,7 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 979px) {
+/*@media (min-width: 768px) and (max-width: 979px) {
   .row {
     margin-left: -20px;
     *zoom: 1;
@@ -432,7 +433,7 @@
   .uneditable-input.span1 {
     width: 32px;
   }
-}
+}*/
 
 @media (min-width: 1200px) {
   .row {
@@ -819,13 +820,57 @@
 
 /* START OF HOBO BOOTSTRAP MODIFICATIONS */
 
-/* Forms adjustments */
+/* Make forms 10px smaller so they fit in columns */
 input, textarea{
   width:200px;
 }
 select{
   width:210px;
 }
+@media (min-width: 500px){
+  .form-horizontal .control-label {
+    width: 100px;
+  }
+  .form-horizontal .controls {
+    margin-left: 110px;
+  }
+}
+
+/* Start of dirty IE7 hacks */
+  input, textarea{
+    *width:170px;
+  }
+  select{
+    *width:180px;
+  }
+  .form-horizontal .columns .control-label {
+    *width: 75px;
+  }
+  .form-horizontal .columns .controls {
+    *margin-left: 0px;
+  }
+  .span3 input, .span3 textarea{
+    *width: 125px;
+  }
+  .span3 select{
+    *width: 135px;
+  }
+  .columns .span6 input, .columns .span6 textarea{
+    *width: 365px; 
+  }
+  .columns .span6 select{
+    *width: 375px; 
+  }
+  .columns .span9 input, .columns .span9 textarea{
+    *width: 605px; 
+  }
+  .columns .span9 select{
+    *width: 615px; 
+  }
+/* End of dirty IE7 hacks */
+
+
+/* When the screen is between these sizes, make fields smaller */
 @media (min-width: 980px) and (max-width: 1199px) {
   input, textarea{
     width:170px;
@@ -833,10 +878,63 @@ select{
   select{
     width:180px;
   }
-  .form-horizontal .control-label {
-    width: 100px;
+  
+  /* When the fields are within a span3 in this screen, make them smaller! */
+  .form-horizontal .columns .control-label {
+    width: 75px;
   }
-  .form-horizontal .controls {
-    margin-left: 120px;
+  .form-horizontal .columns .controls {
+    margin-left: 82px;
+  }
+  .span3 input, .span3 textarea{
+    width: 125px;
+  }
+  .span3 select{
+    width: 135px;
+  }
+  .columns .span6 input, .columns .span6 textarea{
+    width: 365px; 
+  }
+  .columns .span6 select{
+    width: 375px; 
+  }
+  .columns .span9 input, .columns .span9 textarea{
+    width: 605px; 
+  }
+  .columns .span9 select{
+    width: 615px; 
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .form-search i {
+    margin: -20px 0 0 191px;
+  }
+
+  /* When the fields are within span3 on a bigger screen, make them smaller! */
+  .span3 input, .span3 textarea{
+    width: 150px;
+  }
+  .span3 select{
+    width: 160px;
+  }
+  .columns .span6 input, .columns .span6 textarea{
+    width: 450px; /* sum 300px */
+  }
+  .columns .span6 select{
+    width: 460px; /* sum 300px */
+  }
+  .columns .span9 input, .columns .span9 textarea{
+    width: 750px; /* sum 300px */
+  }
+  .columns .span9 select{
+    width: 760px; /* sum 300px */
+  }
+}
+
+@media (max-width: 979px) {
+  .form-search i {
+    margin: -20px 0 0 191px;
   }
 }

@@ -44,7 +44,7 @@
           </div>
         </div>
         <div class="container">
-          <div class="subnav">
+          <div class="subnav" param="subnav">
             <main-nav class="nav nav-pills" current="&title" param/>
           </div>
         </div>
