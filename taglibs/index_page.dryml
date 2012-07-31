@@ -19,6 +19,9 @@
       %>
       <table class="table table-striped" without-header
         fields="&field_names" param="collection">
+        <actions-label:>
+          <t key="hobo.messages.actions">Actions</t>
+        </actions-label:>
         <actions-view:>
           <a with="&this_parent" action="edit">
             <i class="icon icon-edit"></i>

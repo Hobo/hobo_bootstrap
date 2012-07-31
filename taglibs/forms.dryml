@@ -236,8 +236,8 @@
           <one-line-field-list fields="&fields"/>
         </field-list:>
         <actions: replace>
-          <button class="btn" type="submit">
-            <t key="hobo.actions.create">Create</t>
+          <button class="btn btn-primary" type="submit">
+            +
           </button>
         </actions:>
       </form>
