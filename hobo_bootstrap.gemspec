@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.homepage = 'http://hobocentral.net'
   s.rubyforge_project = 'hobo'
   s.summary = 'A bootstrap based theme for Hobo'
-  s.description = File.read(File.expand_path('../README', __FILE__))
+  s.description = 'A bootstrap based theme for Hobo'
 
-  s.add_runtime_dependency('hobo', ["= #{version}"])
+  s.add_runtime_dependency('hobo', ["~> #{version}"])
 
   s.files = `git ls-files -x #{name}/* -z`.split("\0")
 
