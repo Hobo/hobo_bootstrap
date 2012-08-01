@@ -70,16 +70,16 @@
 
                 elsif fields.nil? || fields == "*" || fields.is_a?(Class)
                   klass = fields.is_a?(Class) ? fields : this.class
-                  columns = standard_fields(klass, include_timestamps)
+                  cols = standard_fields(klass, include_timestamps)
 
                   if skip_associations == "has_many"
                     assocs = this.class.reflections.values.reject {|r| r.macro == :has_many }.map &its.name.to_s
-                    columns + assocs
+                    cols + assocs
                   elsif skip_associations
-                    columns
+                    cols
                   else
                     assocs = klass.reflections.values.map &its.name.to_s
-                    columns + assocs
+                    cols + assocs
                   end
                 else
                   comma_split(fields.gsub('-', '_'))
