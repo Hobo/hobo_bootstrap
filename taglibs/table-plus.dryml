@@ -1,0 +1,9 @@
+<!--
+Adds bootstrap styling to `<table-plus>`
+-->
+<extend tag="table-plus">
+  <old-table-plus merge>
+    <table: class="table table-striped table-bordered"/>
+    <search-filter: class="form-inline"/>
+  </old-table-plus>
+</extend>
