@@ -38,23 +38,16 @@ Then in your pages you can call the tag like this
  - and so on.
 
    -->
-<def tag="navigation" attrs="current">
+<def tag="navigation" attrs="current,include-search">
   <ul class="navigation" merge-attrs>
     <set-scoped current-navigation="&current">
       <do param="default"/>
+      <if test="&include_search">
+        <li class="pull-right">
+          <live-search param if="&defined_route? :site_search"/>
+        </li>
+      </if>
     </set-scoped>
-    
-    
-      <li class="pull-right">
-        <live-search param if="&defined_route? :site_search">
-          <label: replace/>
-          <form: class="form-search"/>
-          <input: placeholder="Search" class="search-query"/>
-          <after-input:>
-            <i class="icon-search"></i>
-          </after-input:>
-        </live-search>
-      </li>
   </ul>
 </def>
 
