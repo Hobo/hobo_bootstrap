@@ -17,7 +17,7 @@
   <% tag ||= scope.in_form ? "input" : "view"; no_edit ||= "skip" -%>
   <% required ||= "" ; required = comma_split(required.gsub('-', '_')) -%>
   <legend param if="&all_parameters[:legend]" />
-  <with-fields merge-attrs="&attributes & attrs_for(:with_fields)">
+  <with-fields-grouped merge-attrs="&attributes & attrs_for(:with_fields)">
   
   <% field_name = this_field_name
      input_attrs = {:no_edit => no_edit} if tag == "input" && no_edit == "disable"
@@ -43,7 +43,7 @@
       </div>
       
     </div>
-  </with-fields>
+  </with-fields-grouped>
 </def>
 
 
@@ -61,30 +61,19 @@
 
 
 
-<!--This single tags are used when you need a double size field-->
-<def tag="with-fields" attrs="size, columns, fields, associations, skip, skip-associations, include-timestamps, force-all"><%
-  fields.nil? || associations.nil? or raise ArgumentError, "with-fields -- specify either fields or associations but not both"
+<!--
+Like `<with-fields>`, but groups fields into columns in a bootstrap-friendly fashion.
 
-  field_names = if associations == "has_many"
-                  this.class.reflections.values.select { |refl| refl.macro == :has_many }.map { |refl| refl.name.to_s }
+### Attributes
 
-                elsif fields.nil? || fields == "*" || fields.is_a?(Class)
-                  klass = fields.is_a?(Class) ? fields : this.class
-                  cols = standard_fields(klass, include_timestamps)
+Supports all attributes supported by `<with-fields>` plus:
 
-                  if skip_associations == "has_many"
-                    assocs = this.class.reflections.values.reject {|r| r.macro == :has_many }.map &its.name.to_s
-                    cols + assocs
-                  elsif skip_associations
-                    cols
-                  else
-                    assocs = klass.reflections.values.map &its.name.to_s
-                    cols + assocs
-                  end
-                else
-                  comma_split(fields.gsub('-', '_'))
-                end
-  field_names -= comma_split(skip) if skip
+- size: # of columns in the grid system.  Default is 12
+- columns: # of columns.  Default is 1.
+
+-->
+<def tag="with-fields-grouped" attrs="size, columns, force-all"><%
+  field_names = with_fields_helper(attributes)
   field_names = field_names.select {|f| can_view?(this, f)} unless force_all
   columns = 1 unless columns
   columns = columns.to_i
