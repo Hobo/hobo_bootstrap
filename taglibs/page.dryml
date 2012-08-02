@@ -51,12 +51,12 @@ Make your choice global with:
               <h1 param="app-name">
                 <a class="brand" href="#{base_url}/"><app-name/></a>
               </h1>
-              <main-nav class="nav" current="&title" include-search param if="&nav_location=='top'" />
+              <main-nav class="nav" current="&title" include-search param if="&nav_location.blank? || nav_location=='top'" />
               <account-nav if="&login_url(Hobo::Model::UserBase.default_user_model)" param/>
             </header>
           </div>
         </div>
-        <div class="container" param="nav-container" if="&nav_location.nil? || nav_location=='sub'">
+        <div class="container" param="nav-container" if="&nav_location=='sub'">
           <div class="subnav" param="subnav">
             <main-nav class="nav nav-pills" current="&title" include-search param/>
           </div>
@@ -83,6 +83,7 @@ Make your choice global with:
     </body>
   </html>
 </def>
+
 <def tag="simple-page">
   <page without-live-search without-main-nav merge>
     <account-nav: replace />
