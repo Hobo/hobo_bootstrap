@@ -42,6 +42,28 @@ h2.heading{
   line-height:24px;
 }
 
+/*  hidden-fields */
+div.hidden-fields {
+  display:none;
+}
+
+/* spinner */
+.ajax-progress{
+  padding: 0 20px 10px;
+  background: url(ajax-loader.gif) no-repeat 0px 1px;
+  display: none;
+}
+
+/* input-many */
+ul.input-many {list-style-type: none;}
+ul.input-all  {list-style-type: none;}
+
+ul.input-many > li { overflow:hidden; zoom:1;}
+ul.input-many .input-many-item {float:left;}
+ul.input-many div.buttons {float:left; margin-left:10px;}
+li.input-many-template { display:none; }
+
+
 
 
 /* FIXME: Dirty hacks after here !! */

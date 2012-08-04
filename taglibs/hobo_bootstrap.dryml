@@ -1,17 +1,1 @@
-<!-- This file contains the page tag, which is necessary for Hobo -->
-<include src="page"/>
-
-<!-- Replace the nav default DryML to use bootstrap classes -->
-<include src="nav"/>
-
-<!-- Add some bootstrap classes to buttons -->
-<include src="buttons"/>
-
-<!-- Replace the forms -->
-<include src="forms"/>
-
-<!-- Replace the login page -->
-<include src="login"/>
-
-<!-- Default index page modifications -->
-<include src="index_page"/>
+<include src="*"/>
