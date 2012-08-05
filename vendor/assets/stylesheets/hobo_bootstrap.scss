@@ -66,45 +66,7 @@ li.input-many-template { display:none; }
 
 
 
-/* FIXME: Dirty hacks after here !! */
-/* Add 'well' class look to some elements: this should be improved */
-/*.card, .form, .new, .edit{
-  background-color: #F5F5F5;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 4px 4px 4px 4px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
-  margin-bottom: 20px;
-  min-height: 20px;
-  padding: 19px;
+/* Index page fix */
+.index-page .content-body .table{
+  clear:both;
 }
-textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
-  border-color: rgba(82, 168, 236, 0.8);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
-  outline: 0 none;
-}
-
-.actions:after {
-    clear: both;
-}
-.actions:before, .actions:after {
-    content: "";
-    display: table;
-}
-.actions:before, .actions:after {
-    content: "";
-    display: table;
-}
-.actions {
-    background-color: #F5F5F5;
-    border-top: 1px solid #DDDDDD;
-    margin-bottom: 18px;
-    margin-top: 18px;
-    padding: 17px 20px 18px;
-}
-.collection{
-  margin:0;
-}
-.collection li{
-  list-style:none;
-}
-*/
