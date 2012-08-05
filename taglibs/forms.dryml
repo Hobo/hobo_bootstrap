@@ -13,11 +13,11 @@
   <bootstrap-fields merge/>
 </def>
 
-<def tag="bootstrap-fields" attrs="tag, no-edit, required, no-blanks">
+<def tag="bootstrap-fields" attrs="size, columns, tag, no-edit, required, no-blanks">
   <% tag ||= scope.in_form ? "input" : "view"; no_edit ||= "skip" -%>
   <% required ||= "" ; required = comma_split(required.gsub('-', '_')) -%>
   <legend param if="&all_parameters[:legend]" />
-  <with-fields-grouped merge-attrs="&attributes & attrs_for(:with_fields)">
+  <with-fields-grouped merge-attrs="&attributes & attrs_for(:with_fields)" size="&size" columns="&columns">
   
   <% field_name = this_field_name
      input_attrs = {:no_edit => no_edit} if tag == "input" && no_edit == "disable"
