@@ -11,12 +11,12 @@
 
 Attributes:
 
-- nav-location: `top`, `sub`.   Where do you want your main-nav located.   `top` merges it into the top bar, `sub` gives it its own bar.
+- nav-location: `top`, `sub`.   Where do you want your main-nav located.   `top` merges it into the top bar, `sub` gives it its own bar. `top` is the default option.
 
 Make your choice global with:
 
     <extend tag="page">
-      <old-page merge nav-location="top">
+      <old-page merge nav-location="sub">
     </extend>
 
 -->
