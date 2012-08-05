@@ -14,19 +14,24 @@ Install instructions
 
 Add this to your Gemfile
 
+```ruby
     gem "hobo_bootstrap", :git => "git://github.com/suyccom/hobo_bootstrap.git"
     group :assets do
       # ... Other stuff ... #
       gem 'compass_twitter_bootstrap', :git => 'git://github.com/wyuenho/compass-twitter-bootstrap'
       gem 'compass-rails'
     end
-    
+```
+
 Run bundle to get the gems
 
+```bash
     bundle
-    
+```
+
 Rename front.css to front.scss so you can bootstrap and hobo_bootstrap like this:
 
+```ruby
     /*
      * This is the stylesheet manifest file for the front subsite (which
      * is your whole application if you don't have any subsites).  Files
@@ -45,15 +50,19 @@ Rename front.css to front.scss so you can bootstrap and hobo_bootstrap like this
      *= require_tree ./front
     */
     @import "compass_twitter_bootstrap";
-    
+```
+
 Load bootstrap javascripts in app/assets/front.js, for example:
 
+```ruby
     //= require bootstrap-collapse
-    
+```
+
 Change the theme in app/views/taglibs/front_site.dryml:
 
+```xml
     <include gem='hobo_bootstrap'/>
-    
+```
     
 
 
@@ -78,7 +87,7 @@ Just add these lines to your front_site.dryml:
 Responsive template
 ===================
 
-This theme includes the bootstrap responsive CSS, which makes it work nicely wiht mobile phones. For example:
+This theme includes the bootstrap responsive CSS, which makes it work nicely with mobile phones. For example:
 
 [![responsive][5]][5]
 
