@@ -13,6 +13,8 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency('hobo', ["~> #{version}"])
 
+  s.add_runtime_dependency "will_paginate-bootstrap", "~> 0.2.1"
+
   s.files = `git ls-files -x #{name}/* -z`.split("\0")
 
   s.name = name
