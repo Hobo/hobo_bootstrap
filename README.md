@@ -46,8 +46,10 @@ Rename front.css to front.scss so you can bootstrap and hobo_bootstrap like this
     
 Load bootstrap javascripts in app/assets/front.js, for example:
 
-    //= require bootstrap-collapse
-    
+    //= require bootstrap-all
+
+Alternatively, you could require bootstrap-collapse and bootstrap-alert, since those are the only two javascript components that this theme currently requires.   However, we do plan on supporting more in the future.
+
 Change the theme in app/views/taglibs/front_site.dryml:
 
     <include gem='hobo_bootstrap'/>
