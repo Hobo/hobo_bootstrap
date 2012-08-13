@@ -1,9 +1,8 @@
 <extend tag="index-page">
   <old-index-page: merge>
-  
+
     <new-link: class="btn pull-right"/>
-    <content-header: class="pull-left"/>
-  
+
     <collection: replace>
       <%
         if this.first
