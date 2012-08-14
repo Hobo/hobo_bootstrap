@@ -1,8 +1,10 @@
 <!-- This file is necessary, it was mostly cloned from the default Hobo theme -->
 <def tag="ajax-progress">
-  <div id="ajax-progress" class="ajax-progress" merge-attrs>
-    <div>
-      <span id="ajax-progress-text"></span>
+  <div id="ajax-progress-wrapper">
+    <div id="ajax-progress" class="ajax-progress" merge-attrs>
+      <div>
+        <span id="ajax-progress-text"></span>
+      </div>
     </div>
   </div>
 </def>

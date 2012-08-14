@@ -54,6 +54,11 @@ div.hidden-fields {
   display: none;
 }
 
+/* wrap with a position:absolute so the relatively positioned stuff inside doesn't leave a blank space */
+#ajax-progress-wrapper {
+  position: absolute;
+}
+
 /* input-many */
 ul.input-many {list-style-type: none;}
 ul.input-all  {list-style-type: none;}
