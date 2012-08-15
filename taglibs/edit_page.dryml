@@ -1,4 +1,4 @@
-<extend tdag="edit-page">
+<extend tag="edit-page">
   <old-edit-page: merge>
     <delete-button: class="pull-right"/>
   </old-edit-page:>
