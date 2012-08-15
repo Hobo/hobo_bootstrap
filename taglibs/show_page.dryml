@@ -1,0 +1,5 @@
+<extend tag="show-page">
+  <old-show-page: merge>
+    <field-list: class="form-horizontal"/>
+  </old-show-page:>
+</extend>
