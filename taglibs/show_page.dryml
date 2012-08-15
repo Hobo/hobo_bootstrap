@@ -1,5 +1,7 @@
 <extend tag="show-page">
   <old-show-page: merge>
     <field-list: class="form-horizontal"/>
+    <edit-link: class="btn pull-right"/>
+    <after-edit-link:><div style="clear: right;"/></after-edit-link:>
   </old-show-page:>
 </extend>
