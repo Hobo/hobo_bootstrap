@@ -1,0 +1,3 @@
+<extend tag="delete-button">
+  <old-delete-button class="btn" merge/>
+</extend>
