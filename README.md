@@ -17,6 +17,7 @@ Add this to your Gemfile
 
 ```ruby
     gem "hobo_bootstrap", :git => "git://github.com/suyccom/hobo_bootstrap.git"
+    gem 'will_paginate-bootstrap'
     group :assets do
       # ... Other stuff ... #
       gem 'compass_twitter_bootstrap', :git => 'git://github.com/wyuenho/compass-twitter-bootstrap'
