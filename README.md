@@ -116,78 +116,78 @@ By default, forms only have one column. But many you need more complex forms. Ta
 [![two_columns][6]][6]
 
 ```xml
-<new-page>
-  <form:>
-    <field-list: columns="2"/>
-  </form:>
-</new-page>
+    <new-page>
+      <form:>
+        <field-list: columns="2"/>
+      </form:>
+    </new-page>
 ```
-  
+
 **Three columns, aside and double sized fields**
 
 [![three_columns_complex][7]][7]
 
 ```xml
-<new-page content-size="9">
-  
-  <aside:>
-    Hola! Soy el aside :)
-  </aside:>
-  
-  
-  <form:>
-    <field-list: replace>
-      <field-list size="9" columns="3" fields="name, end_date, codigo_postal"/>
+    <new-page content-size="9">
 
-      <div class="row columns">
-        <div class="span6">
-          <single-field-list fields="description"/>
-        </div>
-        <div class="span3">
-          <single-field-list fields="responsable"/>
-        </div>
-      </div>
-      
-      <div class="row columns">
-        <div class="span6">
-          <single-field-list fields="description"/>
-        </div>
-        <div class="span3">
-          <single-field-list fields="responsable"/>
-        </div>
-      </div>
-      
-      <div class="row columns">
-        <div class="span9">
-          <single-field-list fields="description"/>
-        </div>
-      </div>
-      
-      <div class="row columns">
-        <div class="span3">
-          <single-field-list fields="description"/>
-        </div>
-        <div class="span6">
-          <single-field-list fields="responsable"/>
-        </div>
-      </div>
-      
-      <div class="row columns">
-        <div class="span3">
-          <single-field-list fields="description"/>
-        </div>
-        <div class="span3">
-          <single-field-list fields="responsable"/>
-        </div>
-        <div class="span3">
-          <single-field-list fields="responsable"/>
-        </div>
-      </div>
-    </field-list:>
-    
-  </form:>
-  
-</new-page>
+      <aside:>
+        Hola! Soy el aside :)
+      </aside:>
+
+
+      <form:>
+        <field-list: replace>
+          <field-list size="9" columns="3" fields="name, end_date, codigo_postal"/>
+
+          <div class="row columns">
+            <div class="span6">
+              <single-field-list fields="description"/>
+            </div>
+            <div class="span3">
+              <single-field-list fields="responsable"/>
+            </div>
+          </div>
+
+          <div class="row columns">
+            <div class="span6">
+              <single-field-list fields="description"/>
+            </div>
+            <div class="span3">
+              <single-field-list fields="responsable"/>
+            </div>
+          </div>
+
+          <div class="row columns">
+            <div class="span9">
+              <single-field-list fields="description"/>
+            </div>
+          </div>
+
+          <div class="row columns">
+            <div class="span3">
+              <single-field-list fields="description"/>
+            </div>
+            <div class="span6">
+              <single-field-list fields="responsable"/>
+            </div>
+          </div>
+
+          <div class="row columns">
+            <div class="span3">
+              <single-field-list fields="description"/>
+            </div>
+            <div class="span3">
+              <single-field-list fields="responsable"/>
+            </div>
+            <div class="span3">
+              <single-field-list fields="responsable"/>
+            </div>
+          </div>
+        </field-list:>
+
+      </form:>
+
+    </new-page>
 ```
 
 
@@ -204,7 +204,6 @@ I have been using a demo application to test this theme (the screenshots come fr
 You can download and take a look at it on https://github.com/suyccom/sgagility
 
 
-  
 Notes
 =====
 <hr/>
