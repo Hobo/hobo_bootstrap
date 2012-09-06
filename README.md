@@ -15,7 +15,6 @@ Install instructions
 
 Add this to your Gemfile
 
-```ruby
     gem "hobo_bootstrap", :git => "git://github.com/suyccom/hobo_bootstrap.git"
     gem 'will_paginate-bootstrap'
     group :assets do
@@ -23,17 +22,14 @@ Add this to your Gemfile
       gem 'compass_twitter_bootstrap', :git => 'git://github.com/wyuenho/compass-twitter-bootstrap'
       gem 'compass-rails'
     end
-```
+{.ruby}
 
 Run bundle to get the gems
 
-```bash
     bundle
-```
 
 Rename front.css to front.scss so you can bootstrap and hobo_bootstrap like this:
 
-```ruby
     /*
      * This is the stylesheet manifest file for the front subsite (which
      * is your whole application if you don't have any subsites).  Files
@@ -52,22 +48,20 @@ Rename front.css to front.scss so you can bootstrap and hobo_bootstrap like this
      *= require_tree ./front
     */
     @import "compass_twitter_bootstrap";
-```
+{.css}
 
 Load bootstrap javascripts in app/assets/front.js, for example:
 
-```javascript
     //= require bootstrap-all
-```
+{.javascript}
 
 Alternatively, you could require bootstrap-collapse and bootstrap-alert, since those are the only two javascript components that this theme currently requires.   However, we do plan on supporting more in the future.
 
 Change the theme in app/views/taglibs/front_site.dryml:
 
-```xml
     <include gem='hobo_bootstrap'/>
-```
-    
+{.dryml}
+
 
 
 
@@ -86,11 +80,10 @@ But you can also use a sub menu, like the one in the bootstrap documentation:
 
 In order to enable the sub meny, add these lines to your front_site.dryml:
 
-```xml
     <extend tag="page">
       <old-page merge nav-location="sub">
     </extend>
-```
+{.dryml}
 
 
 
@@ -115,30 +108,24 @@ By default, forms only have one column. But many you need more complex forms. Ta
 
 [![two_columns][6]][6]
 
-```xml
     <new-page>
       <form:>
         <field-list: columns="2"/>
       </form:>
     </new-page>
-```
+{.dryml}
 
 **Three columns, aside and double sized fields**
 
 [![three_columns_complex][7]][7]
 
-```xml
     <new-page content-size="9">
-
       <aside:>
         Hola! Soy el aside :)
       </aside:>
-
-
       <form:>
         <field-list: replace>
           <field-list size="9" columns="3" fields="name, end_date, codigo_postal"/>
-
           <div class="row columns">
             <div class="span6">
               <single-field-list fields="description"/>
@@ -147,7 +134,6 @@ By default, forms only have one column. But many you need more complex forms. Ta
               <single-field-list fields="responsable"/>
             </div>
           </div>
-
           <div class="row columns">
             <div class="span6">
               <single-field-list fields="description"/>
@@ -156,13 +142,11 @@ By default, forms only have one column. But many you need more complex forms. Ta
               <single-field-list fields="responsable"/>
             </div>
           </div>
-
           <div class="row columns">
             <div class="span9">
               <single-field-list fields="description"/>
             </div>
           </div>
-
           <div class="row columns">
             <div class="span3">
               <single-field-list fields="description"/>
@@ -171,7 +155,6 @@ By default, forms only have one column. But many you need more complex forms. Ta
               <single-field-list fields="responsable"/>
             </div>
           </div>
-
           <div class="row columns">
             <div class="span3">
               <single-field-list fields="description"/>
@@ -184,11 +167,9 @@ By default, forms only have one column. But many you need more complex forms. Ta
             </div>
           </div>
         </field-list:>
-
       </form:>
-
     </new-page>
-```
+{.dryml}
 
 
 
