@@ -1,0 +1,35 @@
+<%#
+
+Given a list, renders a bootstrap tab collection.
+
+### Example
+
+    <bootstrap-tab-list:fragments class="tabs-left" active="&this.fragments.first" >
+      <a:>Page <view:page/></a:>
+      <body:><view:body/></body:>
+    </bootstrap-tab-list:fragments>
+
+### Attributes
+
+- active: the element you wish to be initially visible
+
+- id-prefix: (default: tab)  if you have more than one set of tabs on a page, set this to a unique string.
+
+%>
+<def tag="bootstrap-tab-list" attrs="active, id-prefix">
+  <% id_prefix ||= "tab" %>
+  <div class="tabbable" merge param>
+    <ul class="nav nav-tabs" param>
+      <repeat>
+        <li class="#{'active' if this==active}" param>
+          <a href="##{id_prefix}#{this_field}" data-toggle="tab" param/>
+        </li>
+      </repeat>
+    </ul>
+    <div class="tab-content" param="content-container">
+      <repeat>
+        <div id="#{id_prefix}#{this_field}" class="tab-pane  #{'active' if this==active}" param="body"/>
+      </repeat>
+    </div>
+  </div>
+</def>
