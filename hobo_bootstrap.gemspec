@@ -6,13 +6,14 @@ Gem::Specification.new do |s|
 
   s.authors = ['Ignacio Huerta']
   s.email = 'ignacio@ihuerta.net'
-  s.homepage = 'http://hobocentral.net'
+  s.homepage = 'https://github.com/suyccom/hobo_bootstrap'
   s.rubyforge_project = 'hobo'
   s.summary = 'A bootstrap based theme for Hobo'
   s.description = 'A bootstrap based theme for Hobo'
 
   s.add_runtime_dependency('hobo', ["~> #{version}"])
-
+  s.add_runtime_dependency "compass_twitter_bootstrap", "~> 2.0.3"
+  s.add_runtime_dependency "compass-rails", "~> 1.0.3"
   s.add_runtime_dependency "will_paginate-bootstrap", "~> 0.2.1"
 
   s.files = `git ls-files -x #{name}/* -z`.split("\0")

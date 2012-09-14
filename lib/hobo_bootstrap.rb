@@ -1,3 +1,10 @@
+# Sub dependencies written in the gemspec are not loaded by default:
+#   http://stackoverflow.com/questions/6960078
+# We need to require them here, so we can load the JS from bootstrap
+require 'compass_twitter_bootstrap'
+require 'compass-rails'
+require 'will_paginate-bootstrap'
+
 module HoboBootstrap
 
   VERSION = File.read(File.expand_path('../../VERSION', __FILE__)).strip
