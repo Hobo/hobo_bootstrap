@@ -52,6 +52,7 @@ div.hidden-fields {
   padding: 0 20px 10px;
   background: url(ajax-loader.gif) no-repeat 0px 1px;
   display: none;
+  z-index: 1000;
 }
 
 /* wrap with a position:absolute so the relatively positioned stuff inside doesn't leave a blank space */
