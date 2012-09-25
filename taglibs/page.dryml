@@ -42,8 +42,8 @@ Make your choice global with:
     <body param>
       <set-scoped flash-rendered="&false">
         <ajax-progress param/>
-        <div class="navbar">
-          <div class="navbar-inner">
+        <div class="navbar" param="navbar">
+          <div class="navbar-inner" param="navbar-innner">
             <header class="container" param>
               <button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar" type="button">
                 <span class="icon-bar"></span>
@@ -53,8 +53,8 @@ Make your choice global with:
               <h1 param="app-name">
                 <a class="brand" href="#{base_url}/"><app-name/></a>
               </h1>
-              <main-nav class="nav" current="&title" include-search param if="&nav_location.blank? || nav_location=='top'" />
-              <account-nav if="&login_url(Hobo::Model::UserBase.default_user_model)" param/>
+              <main-nav class="nav" current="&title" param if="&nav_location.blank? || nav_location=='top'" />
+              <account-nav if="&login_url(Hobo::Model::UserBase.default_user_model)" include-search="&nav_location.blank? || nav_location=='top'" param/>
             </header>
           </div>
         </div>
@@ -66,12 +66,12 @@ Make your choice global with:
         <% attributes[:content_size] = "12" unless attributes[:content_size] 
         aside_span = "span" + (12 - attributes[:content_size].to_i).to_s
         %>
-        <div class="container bootstrap-content">
-          <div class="row">
-            <div class="span#{attributes[:content_size]}">
+        <div class="container bootstrap-content" param="container">
+          <div class="row" param="main-row">
+            <div class="span#{attributes[:content_size]}" param="main-column">
               <section with-flash-messages param="content"/>
             </div>
-            <div class="#{aside_span}" if="&attributes[:content_size].to_i < 12">
+            <div class="#{aside_span}" if="&attributes[:content_size].to_i < 12" param="aside-column">
               <div class="well">
                 <section param="aside"/>
               </div>
