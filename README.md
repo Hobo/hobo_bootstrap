@@ -15,7 +15,7 @@ Install instructions
 
 Add this to your Gemfile
 
-    gem "hobo_bootstrap", :git => "git://github.com/suyccom/hobo_bootstrap.git"
+    gem "hobo_bootstrap", :git => "git://github.com/Hobo/hobo_bootstrap.git"
     gem 'will_paginate-bootstrap'
     group :assets do
       # ... Other stuff ... #
@@ -192,10 +192,10 @@ Notes
 Right now, you still need to keep "hobo_clean" in your Gemfile if you want to use the Ajax search enabled by default in Hobo.
 
 
-  [1]: https://github.com/suyccom/hobo_bootstrap/raw/master/screenshots/index.png
-  [2]: https://github.com/suyccom/hobo_bootstrap/raw/master/screenshots/login.png
-  [3]: https://github.com/suyccom/hobo_bootstrap/raw/master/screenshots/top_menu.png
-  [4]: https://github.com/suyccom/hobo_bootstrap/raw/master/screenshots/sub_menu.png
-  [5]: https://github.com/suyccom/hobo_bootstrap/raw/master/screenshots/responsive.png
-  [6]: https://github.com/suyccom/hobo_bootstrap/raw/master/screenshots/two_columns.png
-  [7]: https://github.com/suyccom/hobo_bootstrap/raw/master/screenshots/three_columns_complex.png
+  [1]: https://github.com/Hobo/hobo_bootstrap/raw/master/screenshots/index.png
+  [2]: https://github.com/Hobo/hobo_bootstrap/raw/master/screenshots/login.png
+  [3]: https://github.com/Hobo/hobo_bootstrap/raw/master/screenshots/top_menu.png
+  [4]: https://github.com/Hobo/hobo_bootstrap/raw/master/screenshots/sub_menu.png
+  [5]: https://github.com/Hobo/hobo_bootstrap/raw/master/screenshots/responsive.png
+  [6]: https://github.com/Hobo/hobo_bootstrap/raw/master/screenshots/two_columns.png
+  [7]: https://github.com/Hobo/hobo_bootstrap/raw/master/screenshots/three_columns_complex.png
