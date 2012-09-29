@@ -7,9 +7,15 @@
 </def>
 
 <extend tag="index-page">
-  <old-index-page: merge>
+  <old-index-page: without-count without-top-page-nav merge>
 
-    <new-link: class="btn pull-right"/>
+    <new-link: replace/>    
+    <content-header: class="well"/>
+    <before-heading:>
+      <a action="new" to="&model" param="new-link" class="btn pull-right btn-primary">
+        <ht key="#{model.to_s.downcase}.actions.new">New <%= model %></ht>
+      </a>
+    </before-heading:>
 
     <collection: replace>
       <%
@@ -24,7 +30,7 @@
           field_names = field_names.join(', ')
         end
       %>
-      <table class="table table-striped" without-header
+      <table class="table table-striped table-bordered" without-header
         fields="&field_names" param="collection">
         <actions-label:>
           <t key="hobo.messages.actions">Actions</t>
