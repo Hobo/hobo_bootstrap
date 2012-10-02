@@ -4,6 +4,9 @@
 require 'compass_twitter_bootstrap'
 require 'compass-rails'
 require 'will_paginate-bootstrap'
+require 'hobo_rapid'
+require 'hobo_jquery'
+require 'hobo_jquery_ui'
 
 module HoboBootstrap
 
