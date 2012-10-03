@@ -3,7 +3,7 @@
   <a with="&this_parent" action="edit">
     <i class="icon icon-edit"></i>
   </a>
-  <%= link_to '<i class=\'icon-trash\'></i>'.html_safe, this_parent, :'data-confirm' => t('hobo.messages.confirm', :default=>'Are you sure?'), method: :delete %>
+  <%= link_to '<i class=\'icon-trash\'></i>'.html_safe, this_parent, :'data-confirm' => t('hobo.messages.confirm', :default=>'Are you sure?'), :method => :delete %>
 </def>
 
 <extend tag="index-page">
