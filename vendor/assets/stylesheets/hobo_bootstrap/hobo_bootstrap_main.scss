@@ -88,3 +88,20 @@ li.input-many-template { display:none; }
 /* collection */
 ul.collection > li { margin-left: 0; list-style: none;}
 ul.collection { margin-left: 0;}
+
+
+
+/* Show page */
+.show-page .form-horizontal .control-label {
+  font-weight: bold;
+}
+.form-horizontal .controls .view{
+  display: block;
+  margin-top: 5px;
+}
+.show-page .content-body .description{
+  margin-bottom:10px;
+}
+.show-page .form-horizontal .control-group {
+  margin-bottom: 12px;
+}

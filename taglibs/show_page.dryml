@@ -1,7 +1,15 @@
 <extend tag="show-page">
   <old-show-page: merge>
     <field-list: class="form-horizontal"/>
-    <edit-link: class="btn pull-right"/>
-    <after-edit-link:><div style="clear: right;"/></after-edit-link:>
+
+    <before-heading:>
+       <a action="edit" if="&can_edit?" param="edit-link" class="btn pull-right">
+        <ht key="#{model.to_s}.actions.edit">Edit <%= model %></ht>
+      </a>
+    </before-heading:>
+    
+    <edit-link: replace/>
+    
+    <content-header: class="well"/>
   </old-show-page:>
 </extend>
