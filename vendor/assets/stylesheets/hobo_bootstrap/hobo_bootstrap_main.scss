@@ -95,8 +95,7 @@ ul.collection { margin-left: 0;}
 .show-page .form-horizontal .control-label {
   font-weight: bold;
 }
-.form-horizontal .controls .view{
-  display: block;
+.show-page  .form-horizontal .controls{
   margin-top: 5px;
 }
 .show-page .content-body .description{
@@ -104,4 +103,16 @@ ul.collection { margin-left: 0;}
 }
 .show-page .form-horizontal .control-group {
   margin-bottom: 12px;
+}
+
+
+
+/* Icon URLs */
+[class^="icon-"], [class*=" icon-"] {
+  background-image: url("../glyphicons-halflings.png");
+}
+
+
+.icon-white {
+    background-image: url("../glyphicons-halflings-white.png");
 }
