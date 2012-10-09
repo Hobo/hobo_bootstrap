@@ -13,8 +13,17 @@
   <bootstrap-fields merge/>
 </def>
 
+<%# This tag adds the class 'uneditable-input' to a view.   This is very useful with `<bootstrap-fields>`, which is the default `<field-list>` for hobo_bootstrap.  Use like so:
+
+
+    <field-list class="form-horizontal" tag="uneditable-input">
+%>
+<def tag="uneditable-input">
+  <view merge class="uneditable-input"/>
+</def>
+
 <def tag="bootstrap-fields" attrs="size, columns, tag, no-edit, required, no-blanks">
-  <% tag ||= scope.in_form ? "input" : "view"; no_edit ||= "skip" -%>
+  <% tag ||= scope.in_form ? "input" : "uneditable-input"; no_edit ||= "skip" -%>
   <% required ||= "" ; required = comma_split(required.gsub('-', '_')) -%>
   <div merge-attrs="&attributes - attrs_for(:with_fields)">
     <legend param if="&all_parameters[:legend]" />
@@ -27,7 +36,7 @@
     -%>
       <div
          class="control-group #{'required' if required.include?(scope.field_name)}" 
-         unless="&(tag == 'input' && no_edit == 'skip' && !can_edit?) || (tag == 'view' && no_blanks && this.blank?)"
+         unless="&(tag == 'input' && no_edit == 'skip' && !can_edit?) || ((tag == 'view' || tag == 'uneditable-input') && no_blanks && this.blank?)"
          param="#{field_method}-field">
 
         <label class="control-label" for="&id_for_this" param="#{field_method}-label" unless="&field_name.blank?">
