@@ -92,9 +92,6 @@ ul.collection { margin-left: 0;}
 
 
 /* Show page */
-.show-page .form-horizontal .control-label {
-  font-weight: bold;
-}
 .show-page .content-body .description{
   margin-bottom:10px;
 }
@@ -105,8 +102,6 @@ ul.collection { margin-left: 0;}
 [class^="icon-"], [class*=" icon-"] {
   background-image: url("../glyphicons-halflings.png");
 }
-
-
 .icon-white {
     background-image: url("../glyphicons-halflings-white.png");
 }
@@ -115,4 +110,17 @@ ul.collection { margin-left: 0;}
 /* The hidden class is used by Hobo */
 .hidden{
   display:none;
+}
+
+
+
+/* Field-lists alignment and details*/
+.form-horizontal .control-label {
+  font-weight: bold;
+}
+.form-horizontal .controls {
+  padding-top:5px;
+}
+.form-horizontal input, .form-horizontal textarea, .form-horizontal select, .form-horizontal .help-inline, .form-horizontal .uneditable-input, .form-horizontal .input-prepend, .form-horizontal .input-append {
+  margin-top:-5px;
 }
