@@ -3,11 +3,11 @@
 <!--</def>-->
 
 
-
-
-
-
-
+<%# When using field-lists, remember to add the form-horizontal class to get the bootstrap looks (this is done automatically in forms and show-page).
+    <div class="form-horizontal">
+      <field-list class="form-horizontal" with="&Project.first"/>
+    </div>
+%>
 
 <def tag="field-list">
   <bootstrap-fields merge/>
@@ -23,7 +23,7 @@
 </def>
 
 <def tag="bootstrap-fields" attrs="size, columns, tag, no-edit, required, no-blanks">
-  <% tag ||= scope.in_form ? "input" : "uneditable-input"; no_edit ||= "skip" -%>
+  <% tag ||= scope.in_form ? "input" : "view"; no_edit ||= "skip" -%>
   <% required ||= "" ; required = comma_split(required.gsub('-', '_')) -%>
   <div merge-attrs="&attributes - attrs_for(:with_fields)">
     <legend param if="&all_parameters[:legend]" />
