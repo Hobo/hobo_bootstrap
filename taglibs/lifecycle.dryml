@@ -1,0 +1,13 @@
+<!--Add a btn class to transition buttons-->
+
+<def tag="transition-buttons">
+  <% ajax_attrs, html_attrs = attributes.partition_hash(HoboRapidHelper::AJAX_ATTRS) %>
+  <div merge-attrs="&html_attrs" class="transitions">
+    <% transitions = this.lifecycle.publishable_transitions_for(current_user) %>
+    <if test="&transitions">
+      <% transitions.each do |t| %>
+        <transition-button merge-attrs="&ajax_attrs" transition="&t" class="btn"/>
+      <% end %>
+    </if>
+  </div>
+</def>
