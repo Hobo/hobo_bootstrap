@@ -124,3 +124,7 @@ ul.collection { margin-left: 0;}
 .form-horizontal input, .form-horizontal textarea, .form-horizontal select, .form-horizontal .help-inline, .form-horizontal .uneditable-input, .form-horizontal .input-prepend, .form-horizontal .input-append {
   margin-top:-5px;
 }
+.control-group.required .control-label:after {
+  content:"*";
+  color: red; 
+}
