@@ -5,8 +5,9 @@
 - `type`: chooses which flash message to display and also the box style.   The default is `notice`.   `error`, `success` and `info` also have styling.
 - `no-close`: if set, the alert doesn't have a close button
  -->
-<def tag="flash-message">
-  <alert-box merge if="&flash[type]">
+<def tag="flash-message" attrs="type">
+  <% type = type ? type.to_sym : :notice -%>
+  <alert-box merge type="&type" if="&flash[type]">
     <%= flash[type] %>
   </alert-box>
 </def>
