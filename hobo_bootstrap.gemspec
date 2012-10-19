@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 
   s.authors = ['Ignacio Huerta']
   s.email = 'ignacio@ihuerta.net'
-  s.homepage = 'https://github.com/suyccom/hobo_bootstrap'
+  s.homepage = 'https://github.com/Hobo/hobo_bootstrap'
   s.rubyforge_project = 'hobo'
   s.summary = 'A bootstrap based theme for Hobo'
   s.description = 'A bootstrap based theme for Hobo'
