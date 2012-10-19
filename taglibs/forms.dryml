@@ -64,14 +64,6 @@
   </old-form:>
 </extend>
 
-
-
-
-
-
-
-
-
 <!--
 Like `<with-fields>`, but groups fields into columns in a bootstrap-friendly fashion.
 
@@ -177,12 +169,12 @@ Supports all attributes supported by `<with-fields>` plus:
 <def tag="one-line-form" attrs="fields">
   <div class="row">
     <div class="span12">
-      <form class="inline-form well" merge-attrs>
+      <form class="inline-form well" remove-class="form-horizontal" merge>
         <field-list: replace>
-          <one-line-field-list fields="&fields"/>
+          <one-line-field-list param="field-list" fields="&fields"/>
         </field-list:>
         <actions: replace>
-          <button class="btn btn-primary" type="submit">
+          <button class="btn btn-primary" type="submit" param="submit">
             +
           </button>
         </actions:>
