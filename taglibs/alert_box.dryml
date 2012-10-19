@@ -1,0 +1,14 @@
+<!-- Renders an alert with bootstrap style
+
+### Attributes
+
+- `type`: chooses which flash message to display and also the box style.   The default is `notice`.   `error`, `success` and `info` also have styling.
+- `no-close`: if set, the alert doesn't have a close button
+ -->
+<def tag="alert-box" attrs="type, no-close">
+  <% type = type ? type.to_sym : :notice -%>
+  <div class="alert alert-#{type}" unless="&no_close" merge-attrs>
+    <a class="close" data-dismiss="alert" href="#" param="close">×</a>
+    <span param="default"/>
+  </div>
+</def>
