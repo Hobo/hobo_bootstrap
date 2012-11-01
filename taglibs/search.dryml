@@ -2,7 +2,7 @@
 Adds bootstrap styling to `<live-search>`
 -->
 <extend tag="live-search">
-  <old-live-search>
+  <old-live-search remove-class="form-horizontal">
     <label: replace/>
     <form: class="form-search"/>
     <input: placeholder="Search" class="search-query"/>
