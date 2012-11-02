@@ -128,3 +128,16 @@ ul.collection { margin-left: 0;}
   content:"*";
   color: #C62121; 
 }
+
+
+
+/* Sortable collection */
+div.ordering-handle {
+  background: none repeat scroll 0 0 #CCCCCC;
+  color: white;
+  cursor: move;
+  float: left;
+  margin-right: 5px;
+  padding: 0 2px;
+  border-radius: 4px 4px 4px 4px;
+}
