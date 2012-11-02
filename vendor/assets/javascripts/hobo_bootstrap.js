@@ -1,1 +1,1 @@
-//=require bootstrap-all
+//= require bootstrap
