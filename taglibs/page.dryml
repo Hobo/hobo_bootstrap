@@ -56,9 +56,9 @@ Make your choice global with:
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <h1 param="app-name">
+              <div param="app-name">
                 <a class="brand" href="#{base_url}/"><app-name/></a>
-              </h1>
+              </div>
               <main-nav class="nav" current="&title" param if="&nav_location.blank? || nav_location=='top'" />
               <account-nav if="&login_url(Hobo::Model::UserBase.default_user_model)" include-search="&nav_location.blank? || nav_location=='top'" param/>
             </header>
