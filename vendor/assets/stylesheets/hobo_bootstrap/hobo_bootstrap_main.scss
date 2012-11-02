@@ -1,5 +1,5 @@
 
-@import "compass_twitter_bootstrap";
+@import "bootstrap";
 
 /* Top menu bar (app name, login...): 
    It's full width so border-radius is unnecessary */
@@ -100,10 +100,10 @@ ul.collection { margin-left: 0;}
 
 /* Icon URLs */
 [class^="icon-"], [class*=" icon-"] {
-  background-image: url("../glyphicons-halflings.png");
+  background-image: image-url("glyphicons-halflings.png");
 }
 .icon-white {
-    background-image: url("../glyphicons-halflings-white.png");
+    background-image: image-url("glyphicons-halflings-white.png");
 }
 
 
@@ -126,7 +126,7 @@ ul.collection { margin-left: 0;}
 }
 .control-group.required .control-label:after {
   content:"*";
-  color: #C62121; 
+  color: #C62121;
 }
 
 

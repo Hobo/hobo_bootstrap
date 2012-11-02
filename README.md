@@ -15,43 +15,20 @@ Install instructions
 Add this to your Gemfile
 
     gem "hobo_bootstrap", :git => "git://github.com/Hobo/hobo_bootstrap.git"
-    gem 'will_paginate-bootstrap'
-    group :assets do
-      # ... Other stuff ... #
-      gem 'compass_twitter_bootstrap', :git => 'git://github.com/wyuenho/compass-twitter-bootstrap'
-      gem 'compass-rails'
-    end
 {.ruby}
 
 Run bundle to get the gems
 
     bundle
 
-Rename front.css to front.scss so you can bootstrap and hobo_bootstrap like this:
+Add to your front.scss:
 
-    /*
-     * This is the stylesheet manifest file for the front subsite (which
-     * is your whole application if you don't have any subsites).  Files
-     * or plugins referenced from here or placed in the front/ directory
-     * will be included.
-     *
-     *= require_self
-     *= require application
-     *= require hobo_rapid
-     *= require hobo_jquery
-     *= require hobo_jquery_ui
-     *= require jquery-ui/redmond
      *= require hobo_bootstrap
-     *= require hobo_bootstrap_docs
-     *= require hobo_bootstrap_responsive
-     *= require_tree ./front
-    */
-    @import "compass_twitter_bootstrap";
 {.css}
 
-Load bootstrap javascripts in app/assets/front.js, for example:
+Add to your front.js:
 
-    //= require bootstrap-all
+    //= require hobo_bootstrap
 {.javascript}
 
 Alternatively, you could require bootstrap-collapse and bootstrap-alert, since those are the only two javascript components that this theme currently requires.   However, we do plan on supporting more in the future.
@@ -61,9 +38,7 @@ Change the theme in app/views/taglibs/front_site.dryml:
     <include gem='hobo_bootstrap'/>
 {.dryml}
 
-
-
-
+You will also want to remove any references to your previous theme in the above files.  `hobo_clean` is the name of the old default Hobo theme.
 
 Two main menu options
 =====================
@@ -77,7 +52,7 @@ By default, hobo_bootstrap puts every option in the top menu, like this:
 But you can also use a sub menu, like the one in the bootstrap documentation:
 [![sub_menu][4]][4]
 
-In order to enable the sub meny, add these lines to your front_site.dryml:
+In order to enable the sub menu, add these lines to your front_site.dryml:
 
     <extend tag="page">
       <old-page merge nav-location="sub">
@@ -95,7 +70,39 @@ This theme includes the bootstrap responsive CSS, which makes it work nicely wit
 
 [![responsive][5]][5]
 
+If you don't want to include the responsive CSS use
 
+    *= require hobo_bootstrap/hobo_bootstrap_main
+
+instead of
+
+    *= require hobo_bootstrap
+
+in your front.scss.
+
+
+Bootswatch themes
+=================
+
+If you want to style your theme differently, the easiest way is to choose a theme from [bootswatch](http://bootswatch.com).
+
+In front.scss, remove:
+
+    *= require hobo_bootstrap
+
+and add this to the bottom of the file, outside of the comment:
+
+    @import "bootswatch/cerulean/variables";
+    @import "hobo_bootstrap";
+    @import "bootswatch/cerulean/bootswatch";
+
+Replace `cerulean` with the theme of your choice.
+
+Add to Gemfile
+
+    gem 'bootswatch-rails'
+
+And run `bundle`.
 
 Complex forms
 =============
