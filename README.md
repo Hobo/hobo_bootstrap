@@ -1,8 +1,7 @@
-hobo_bootstrap
-==============
-<hr/>
-
 This is a theme for Hobo 1.4 (http://www.hobocentral.net) that implements the Bootstrap library (http://twitter.github.com/bootstrap/).
+
+# hobo_bootstrap
+<hr/>
 
 [![index][1]][1]
 [![login][2]][2]
