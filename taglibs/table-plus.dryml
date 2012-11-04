@@ -7,7 +7,9 @@ Adds bootstrap styling to `<table-plus>`
     <header: style="float: right;"/>
     <search-filter:>
       <search-form: class="form-search" style="display: inline;" />
-      <input: class="search-query"/>
+      <label: replace/>
+      <input: class="search-query" placeholder="Search"/>
+      <search-submit: remove-class="btn-primary" class="btn-small"/>
       <clear-form: class="form-search" style="display: inline;"/>
     </search-filter:>
   </old-table-plus>
