@@ -1,8 +1,11 @@
 <%# displays the pencil and trash can icons used by the bootstrap index page. %>
 <def tag="bootstrap-table-actions">
-  <a with="&this_parent" action="edit">
-    <i class="icon icon-edit"></i>
-  </a>
+
+  <do with="&this_parent">
+    <a action="edit" if="&object_url(this, :edit)">
+      <i class="icon icon-edit"></i>
+    </a>
+  </do>
   <% if can_delete?(this_parent) %>
   <%= link_to '<i class=\'icon-trash\'></i>'.html_safe, this_parent, :'data-confirm' => t('hobo.messages.confirm', :default=>'Are you sure?'), :method => :delete %>
   <% end %>
