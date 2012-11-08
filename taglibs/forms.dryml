@@ -3,12 +3,13 @@
 <!--</def>-->
 
 
-<%# When using field-lists, remember to add the form-horizontal class to get the bootstrap looks (this is done automatically in forms and show-page).
+<%# `field-list` in hobo_bootstrap is provided by `<bootstrap-fields>`.   `<bootstrap-fields>` has more options than Hobo's stock field-list's, so please check the `<bootstrap-fields>` documentation for more details.
+
+    When using field-lists, remember to add the form-horizontal class to get the bootstrap looks (this is done automatically in forms and show-page).
     <div class="form-horizontal">
       <field-list class="form-horizontal" with="&Project.first"/>
     </div>
 %>
-
 <def tag="field-list">
   <bootstrap-fields merge/>
 </def>
@@ -22,7 +23,27 @@
   <view merge class="uneditable-input"/>
 </def>
 
-<def tag="bootstrap-fields" attrs="size, columns, tag, no-edit, required, no-blanks">
+<%# `bootstrap-fields` provides HTML markup for an object in a manner suitable for use inside of Bootstrap's [form-horizontal](http://twitter.github.com/bootstrap/base-css.html#forms).
+
+`bootstrap-fields` implements a superset of the `<feckless-fieldset>` interface.   We only document the differences here.   Please read the `<feckless-fieldset>` documentation first.
+
+### Attributes
+
+- size: # of columns in the grid system.  Default is 12
+- columns: # of columns.  Default is 1.
+- input-attrs: A ruby hash containing attributes to be merged onto each view.   For example
+
+    <bootstrap-fields fields="foo,bar" input-attrs="&{:class => 'span9'}"/>
+
+is equivalent to:
+
+    <bootstrap-fields fields="foo,bar">
+      <foo-tag: class="span9"/>
+      <bar-tag: class="span9"/>
+    </bootstrap-fields>
+
+%>
+<def tag="bootstrap-fields" attrs="size, columns, tag, no-edit, required, no-blanks, input-attrs">
   <% tag ||= scope.in_form ? "input" : "view"; no_edit ||= "skip" -%>
   <% required ||= "" ; required = comma_split(required.gsub('-', '_')) -%>
   <div merge-attrs="&attributes - attrs_for(:with_fields)">
@@ -30,7 +51,8 @@
     <with-fields-grouped merge-attrs="&attributes & attrs_for(:with_fields)" size="&size" columns="&columns">
 
     <% field_name = this_field_name
-       input_attrs = {:no_edit => no_edit} if tag == "input" && no_edit == "disable"
+       input_attrs ||= {}
+       input_attrs[:no_edit] = no_edit if tag == "input" && no_edit == "disable"
        field_method = scope.field_name.to_s.sub('?', '').gsub('.', '-')
        id_for_this = param_name_for_this.gsub('[', '_').gsub(']', '')
     -%>
@@ -58,6 +80,7 @@
 </def>
 
 
+<!-- nodoc. -->
 <extend tag="form">
   <old-form: class="form-horizontal" merge>
     <actions: class="form-actions"/>
