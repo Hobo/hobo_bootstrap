@@ -51,7 +51,7 @@ Make your choice global with:
         <div class="navbar" param="navbar">
           <div class="navbar-inner" param="navbar-innner">
             <header class="container" param>
-              <button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar" type="button">
+              <button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar" type="button" param="collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
