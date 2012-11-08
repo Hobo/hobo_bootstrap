@@ -1,16 +1,48 @@
 <%# displays the pencil and trash can icons used by the bootstrap index page. %>
 <def tag="bootstrap-table-actions">
-
   <do with="&this_parent">
-    <a action="edit" if="&object_url(this, :edit)">
+    <a action="edit" if="&object_url(this, :edit)" param="edit">
       <i class="icon icon-edit"></i>
     </a>
   </do>
   <% if can_delete?(this_parent) %>
-  <%= link_to '<i class=\'icon-trash\'></i>'.html_safe, this_parent, :'data-confirm' => t('hobo.messages.confirm', :default=>'Are you sure?'), :method => :delete %>
+    <do param="delete">
+      <%= link_to '<i class=\'icon-trash\'></i>'.html_safe, this_parent, :'data-confirm' => t('hobo.messages.confirm', :default=>'Are you sure?'), :method => :delete %>
+    </do>
   <% end %>
 </def>
 
+<%# This is the hobo_bootstrap customization of the index page.
+
+It uses a table for the collection view, rather than the list of cards that hobo_clean uses.
+
+To switch to a list of cards, parameterize your index page like this:
+
+     <index-page>
+       <collection: replace>
+         <collection/>
+       </collection:>
+     </index-page>
+
+If you wish to customize the table instead, the collections param may be tweaked like any other `<table>`.
+
+    <collection: fields="this, subject, actions">
+      <this-view:>My <view/></this-view>
+    </collection:>
+
+`actions` is defined in this tag.  Remove it from `fields` to remove the column.
+
+The best way to remove any of the actions is to adjust your permission functions.   However, if you wish to remove or tweak in the view:
+
+    <collection:>
+      <actions-view:>
+        <bootstrap-table-actions>
+          <delete: replace/>
+        </bootstrap-table-actions>
+      </actions-view:>
+    </collection:>
+
+%>
 <extend tag="index-page">
   <old-index-page: without-count without-top-page-nav merge>
 
