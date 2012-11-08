@@ -71,12 +71,14 @@ div.hidden-fields {
 ul.input-many {list-style-type: none;}
 ul.input-all  {list-style-type: none;}
 
-ul.input-many > li { overflow:hidden; zoom:1;}
-ul.input-many .input-many-item {float:left;}
-ul.input-many div.buttons {float:left; margin-left:10px;}
-li.input-many-template { display:none; }
-
-
+ul.input-many > li { display: table-row; }
+ul.input-many > li > div.input-many-item {display: table-cell; padding-right: 10px; padding-top: 20px; border-right: 1px dotted; border-bottom: 1px dotted; }
+/* li:nth-child(3) is the first visible child; first two are hidden */
+ul.input-many > li:nth-child(3) > div.input-many-item {padding-top: 0px;}
+ul.input-many > li > div.buttons {display: table-cell; padding-left: 10px; vertical-align: middle;}
+ul.input-many > li > div.buttons button {@extend .btn}
+ul.input-many > li.input-many-template { display:none; }
+ul.input-many > li.hidden { display:none; }
 
 
 /* Index page fix */
