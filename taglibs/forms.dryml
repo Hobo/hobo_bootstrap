@@ -48,7 +48,7 @@ is equivalent to:
   <% required ||= "" ; required = comma_split(required.gsub('-', '_')) -%>
   <div merge-attrs="&attributes - attrs_for(:with_fields)">
     <legend param if="&all_parameters[:legend]" />
-    <with-fields-grouped merge-attrs="&attributes & attrs_for(:with_fields)" size="&size" columns="&columns">
+    <with-fields-grouped merge-attrs="&attributes & attrs_for(:with_fields)" size="&size" columns="&columns" param>
 
     <% field_name = this_field_name
        input_attrs ||= {}
@@ -109,7 +109,7 @@ Supports all attributes supported by `<with-fields>` plus:
   field_names_groups = field_names.in_groups(columns, false)
   row_classes = "row"
   row_classes += " columns" if columns > 1
-  %><div class="#{row_classes}"> <%
+  %><div class="#{row_classes}" merge-attrs> <%
   field_names_groups.each do |field_names_group|
     %> <div class="span#{span_size}"> <%
     field_names_group.each do |field|
