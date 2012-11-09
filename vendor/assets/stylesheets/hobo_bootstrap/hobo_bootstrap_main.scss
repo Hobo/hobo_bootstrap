@@ -131,6 +131,9 @@ ul.collection { margin-left: 0;}
   content:"*";
   color: #C62121;
 }
+.form-horizontal .actions {
+  @extend .form-actions;
+}
 
 
 
