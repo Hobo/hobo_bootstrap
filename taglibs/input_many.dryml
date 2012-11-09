@@ -1,0 +1,5 @@
+<extend tag="input-many">
+  <old-input-many merge>
+    <field-list: size="0"/>
+  </old-input-many>
+</extend>
