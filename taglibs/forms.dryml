@@ -55,9 +55,10 @@ is equivalent to:
        input_attrs[:no_edit] = no_edit if tag == "input" && no_edit == "disable"
        field_method = scope.field_name.to_s.sub('?', '').gsub('.', '-')
        id_for_this = param_name_for_this.gsub('[', '_').gsub(']', '')
+       error_class = this_parent.errors[this_field].empty? ? "" : "error"
     -%>
       <div
-         class="control-group #{'required' if required.include?(scope.field_name)}" 
+         class="control-group #{'required' if required.include?(scope.field_name)} #{error_class}" 
          unless="&(tag == 'input' && no_edit == 'skip' && !can_edit?) || ((tag == 'view' || tag == 'uneditable-input') && no_blanks && this.blank?)"
          param="#{field_method}-field">
 
