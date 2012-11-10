@@ -5,7 +5,7 @@ Adds bootstrap styling to `<live-search>`
   <old-live-search remove-class="form-horizontal">
     <label: replace/>
     <form: class="form-search"/>
-    <input: placeholder="Search" class="search-query"/>
+    <input: placeholder="&t('hobo.live_search.label', :default => 'Search')" class="search-query"/>
     <after-input:>
       <i class="icon-search"></i>
     </after-input:>
