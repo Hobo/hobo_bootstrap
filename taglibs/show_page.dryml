@@ -1,3 +1,6 @@
+<!--
+Adds bootstrap styling to `<show-page>`
+-->
 <extend tag="show-page">
   <old-show-page: merge>
     <field-list: class="form-horizontal"/>

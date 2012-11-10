@@ -118,6 +118,7 @@ Make your choice global with:
   </html>
 </def>
 
+<!-- nodoc. -->
 <def tag="simple-page">
   <page without-live-search without-main-nav merge>
     <account-nav: replace />

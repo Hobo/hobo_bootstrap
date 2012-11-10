@@ -162,7 +162,7 @@ Supports all attributes supported by `<with-fields>` plus:
 </def>
 
 
-<!-- This field list creates a field list in just one line using -->
+<!-- This field list creates a field list in just one line -->
 <def tag="one-line-field-list" attrs="tag, no-edit, required, no-blanks">
   <% tag ||= scope.in_form ? "input" : "view"; no_edit ||= "skip" -%>
   <% required ||= "" ; required = comma_split(required.gsub('-', '_')) -%>
@@ -189,7 +189,7 @@ Supports all attributes supported by `<with-fields>` plus:
 
 
 
-
+<!-- This tag creates a form in just one line using bootstrap's inline-form -->
 <def tag="one-line-form" attrs="fields">
   <div class="row">
     <div class="span12">
