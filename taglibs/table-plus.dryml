@@ -6,9 +6,11 @@ Adds bootstrap styling to `<table-plus>`
     <table: class="table table-striped table-bordered" style="clear: both;"/>
     <header: style="float: right;"/>
     <search-filter:>
-      <search-form: class="form-search" style="display: inline;" />
-      <input: class="search-query"/>
-      <clear-form: class="form-search" style="display: inline;"/>
+      <search-form: class="form-search" remove-class="form-horizontal" style="display: inline;" />
+      <label: replace/>
+      <input: class="search-query" placeholder="Search"/>
+      <search-submit: remove-class="btn-primary" class="btn-small"/>
+      <clear-form: class="form-search" remove-class="form-horizontal" style="display: inline;"/>
     </search-filter:>
   </old-table-plus>
 </extend>

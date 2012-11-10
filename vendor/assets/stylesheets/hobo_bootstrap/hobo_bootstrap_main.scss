@@ -1,5 +1,5 @@
 
-@import "compass_twitter_bootstrap";
+@import "bootstrap";
 
 /* Top menu bar (app name, login...): 
    It's full width so border-radius is unnecessary */
@@ -25,7 +25,7 @@
   margin:4px 4px 0 0;
 }
 .form-search i {
-  margin: -20px 0 0 162px;
+  margin: -22px 0 0 178px;
   display: block;
   position:absolute;
 }
@@ -56,8 +56,9 @@ div.hidden-fields {
 
 /* spinner */
 .ajax-progress{
-  padding: 0 20px 10px;
-  background: url(ajax-loader.gif) no-repeat 0px 1px;
+  padding: 5px 12px 5px 27px;
+  background: image-url('ajax-loader.gif') no-repeat 8px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
   display: none;
   z-index: 1000;
 }
@@ -71,12 +72,14 @@ div.hidden-fields {
 ul.input-many {list-style-type: none;}
 ul.input-all  {list-style-type: none;}
 
-ul.input-many > li { overflow:hidden; zoom:1;}
-ul.input-many .input-many-item {float:left;}
-ul.input-many div.buttons {float:left; margin-left:10px;}
-li.input-many-template { display:none; }
-
-
+ul.input-many > li { display: table-row; }
+ul.input-many > li > div.input-many-item {display: table-cell; padding-right: 10px; padding-top: 20px; border-right: 1px dotted; border-bottom: 1px dotted; }
+/* li:nth-child(3) is the first visible child; first two are hidden */
+ul.input-many > li:nth-child(3) > div.input-many-item {padding-top: 0px;}
+ul.input-many > li > div.buttons {display: table-cell; padding-left: 10px; vertical-align: middle;}
+ul.input-many > li > div.buttons button {@extend .btn}
+ul.input-many > li.input-many-template { display:none; }
+ul.input-many > li.hidden { display:none; }
 
 
 /* Index page fix */
@@ -100,10 +103,10 @@ ul.collection { margin-left: 0;}
 
 /* Icon URLs */
 [class^="icon-"], [class*=" icon-"] {
-  background-image: url("../glyphicons-halflings.png");
+  background-image: image-url("glyphicons-halflings.png");
 }
 .icon-white {
-    background-image: url("../glyphicons-halflings-white.png");
+    background-image: image-url("glyphicons-halflings-white.png");
 }
 
 
@@ -126,5 +129,37 @@ ul.collection { margin-left: 0;}
 }
 .control-group.required .control-label:after {
   content:"*";
-  color: #C62121; 
+  color: #C62121;
+}
+.form-horizontal .actions {
+  @extend .form-actions;
+}
+
+
+
+/* Sortable collection */
+div.ordering-handle {
+  background: none repeat scroll 0 0 #CCCCCC;
+  color: white;
+  cursor: move;
+  float: left;
+  margin-right: 5px;
+  padding: 0 2px;
+  border-radius: 4px 4px 4px 4px;
+}
+
+
+
+/* Select-many */
+.select-many .item{
+  margin-bottom:7px;
+}
+
+
+/* Table plus search */
+.table-plus .header .search{
+  padding-bottom:5px;
+}
+.table-plus .header .search .submit-button{
+  margin-left:5px;
 }

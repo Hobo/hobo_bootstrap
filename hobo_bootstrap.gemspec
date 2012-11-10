@@ -13,8 +13,7 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency('hobo', "~> 2.0.0.pre1")
   s.add_runtime_dependency('hobo_jquery_ui', "~> 2.0.0.pre1")
-  s.add_runtime_dependency "compass_twitter_bootstrap", "~> 2.0.3"
-  s.add_runtime_dependency "compass-rails", "~> 1.0.3"
+  s.add_runtime_dependency "bootstrap-sass", "~> 2.1"
   s.add_runtime_dependency "will_paginate-bootstrap", "~> 0.2.1"
 
   s.files = `git ls-files -x #{name}/* -z`.split("\0")

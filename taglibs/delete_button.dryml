@@ -1,3 +1,6 @@
+<!--
+Adds bootstrap styling to `<delete-button>`
+-->
 <extend tag="delete-button">
   <old-delete-button class="btn" merge/>
 </extend>

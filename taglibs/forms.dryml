@@ -3,12 +3,13 @@
 <!--</def>-->
 
 
-<%# When using field-lists, remember to add the form-horizontal class to get the bootstrap looks (this is done automatically in forms and show-page).
+<%# `field-list` in hobo_bootstrap is provided by `<bootstrap-fields>`.   `<bootstrap-fields>` has more options than Hobo's stock field-list's, so please check the `<bootstrap-fields>` documentation for more details.
+
+    When using field-lists, remember to add the form-horizontal class to get the bootstrap looks (this is done automatically in forms and show-page).
     <div class="form-horizontal">
       <field-list class="form-horizontal" with="&Project.first"/>
     </div>
 %>
-
 <def tag="field-list">
   <bootstrap-fields merge/>
 </def>
@@ -22,20 +23,42 @@
   <view merge class="uneditable-input"/>
 </def>
 
-<def tag="bootstrap-fields" attrs="size, columns, tag, no-edit, required, no-blanks">
+<%# `bootstrap-fields` provides HTML markup for an object in a manner suitable for use inside of Bootstrap's [form-horizontal](http://twitter.github.com/bootstrap/base-css.html#forms).
+
+`bootstrap-fields` implements a superset of the `<feckless-fieldset>` interface.   We only document the differences here.   Please read the `<feckless-fieldset>` documentation first.
+
+### Attributes
+
+- size: # of columns in the grid system.  Default is 12
+- columns: # of columns.  Default is 1.
+- input-attrs: A ruby hash containing attributes to be merged onto each view.   For example
+
+    <bootstrap-fields fields="foo,bar" input-attrs="&{:class => 'span9'}"/>
+
+is equivalent to:
+
+    <bootstrap-fields fields="foo,bar">
+      <foo-tag: class="span9"/>
+      <bar-tag: class="span9"/>
+    </bootstrap-fields>
+
+%>
+<def tag="bootstrap-fields" attrs="size, columns, tag, no-edit, required, no-blanks, input-attrs">
   <% tag ||= scope.in_form ? "input" : "view"; no_edit ||= "skip" -%>
   <% required ||= "" ; required = comma_split(required.gsub('-', '_')) -%>
   <div merge-attrs="&attributes - attrs_for(:with_fields)">
     <legend param if="&all_parameters[:legend]" />
-    <with-fields-grouped merge-attrs="&attributes & attrs_for(:with_fields)" size="&size" columns="&columns">
+    <with-fields-grouped merge-attrs="&attributes & attrs_for(:with_fields)" size="&size" columns="&columns" param>
 
     <% field_name = this_field_name
-       input_attrs = {:no_edit => no_edit} if tag == "input" && no_edit == "disable"
+       input_attrs ||= {}
+       input_attrs[:no_edit] = no_edit if tag == "input" && no_edit == "disable"
        field_method = scope.field_name.to_s.sub('?', '').gsub('.', '-')
        id_for_this = param_name_for_this.gsub('[', '_').gsub(']', '')
+       error_class = this_parent.errors[this_field].empty? ? "" : "error"
     -%>
       <div
-         class="control-group #{'required' if required.include?(scope.field_name)}" 
+         class="control-group #{'required' if required.include?(scope.field_name)} #{error_class}" 
          unless="&(tag == 'input' && no_edit == 'skip' && !can_edit?) || ((tag == 'view' || tag == 'uneditable-input') && no_blanks && this.blank?)"
          param="#{field_method}-field">
 
@@ -58,6 +81,7 @@
 </def>
 
 
+<!-- nodoc. -->
 <extend tag="form">
   <old-form: class="form-horizontal" merge>
     <actions: class="form-actions"/>
@@ -86,7 +110,7 @@ Supports all attributes supported by `<with-fields>` plus:
   field_names_groups = field_names.in_groups(columns, false)
   row_classes = "row"
   row_classes += " columns" if columns > 1
-  %><div class="#{row_classes}"> <%
+  %><div class="#{row_classes}" merge-attrs> <%
   field_names_groups.each do |field_names_group|
     %> <div class="span#{span_size}"> <%
     field_names_group.each do |field|
@@ -138,7 +162,7 @@ Supports all attributes supported by `<with-fields>` plus:
 </def>
 
 
-<!-- This field list creates a field list in just one line using -->
+<!-- This field list creates a field list in just one line -->
 <def tag="one-line-field-list" attrs="tag, no-edit, required, no-blanks">
   <% tag ||= scope.in_form ? "input" : "view"; no_edit ||= "skip" -%>
   <% required ||= "" ; required = comma_split(required.gsub('-', '_')) -%>
@@ -165,7 +189,7 @@ Supports all attributes supported by `<with-fields>` plus:
 
 
 
-
+<!-- This tag creates a form in just one line using bootstrap's inline-form -->
 <def tag="one-line-form" attrs="fields">
   <div class="row">
     <div class="span12">
