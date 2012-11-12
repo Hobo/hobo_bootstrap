@@ -151,8 +151,21 @@ div.ordering-handle {
 
 
 /* Select-many */
+.select-many .items{
+  width: 100%;
+  display: table;
+  margin-bottom: 3px;
+}
 .select-many .item{
-  margin-bottom:7px;
+  display: table-row;
+}
+.select-many .item * {
+  display: table-cell;
+  margin-bottom: 5px;
+}
+.select-many optgroup.disabled-option {
+  color: #BBBBBB;
+  height: 1em;
 }
 
 
@@ -162,4 +175,13 @@ div.ordering-handle {
 }
 .table-plus .header .search .submit-button{
   margin-left:5px;
+}
+
+
+/* check-many */
+.check-many {
+  list-style-type: none;
+}
+.check-many li label {
+  display: inline;
 }
