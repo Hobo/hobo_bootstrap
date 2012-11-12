@@ -34,14 +34,16 @@ You also need to modify the create action of the new record. projects_controller
              complete="$('#myModal-#{this_field}').modal('hide')">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">×</button>
-        <h3 id="myModalLabel">Create new record</h3>
+        <h3 id="myModalLabel"><%= t('hobo.actions.create', :model => this_type.to_s) %></h3>
       </div>
       <div class="modal-body">
         <field-list/>
       </div>
       <div class="modal-footer">
-        <submit label="Create"/>
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <submit label="&t('hobo.actions.create', :model => this_type.to_s)"/>
+        <button class="btn" data-dismiss="modal" aria-hidden="true">
+          <%= t('hobo.live_search.close_button') %>
+        </button>
       </div>
     </formlet>
   </div>
