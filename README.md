@@ -70,8 +70,9 @@ This theme includes the bootstrap responsive CSS, which makes it work nicely wit
 
 [![responsive][5]][5]
 
-If you don't want to include the responsive CSS use
+If you don't want to include the responsive CSS, use
 
+    *= require bootstrap
     *= require hobo_bootstrap/hobo_bootstrap_main
 
 instead of

@@ -1,3 +1,5 @@
-@import "hobo_bootstrap/hobo_bootstrap_main";
-@import "hobo_bootstrap/hobo_bootstrap_responsive";
+@import "bootstrap";
+@import "hobo_bootstrap/hobo_bootstrap_main";  // bootstrap stylings for hobo components
+@import "bootstrap-responsive"; // Main responsive file
+@import "hobo_bootstrap/hobo_bootstrap_responsive"; // Hobo responsive workarounds
 @import "hobo_bootstrap/hobo_bootstrap_docs";
