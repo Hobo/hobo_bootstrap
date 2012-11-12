@@ -15,7 +15,9 @@ Attributes:
 
 - `bottom-load-javascript` - if set, will load Javascript at the bottom of the page rather than in head
 - nav-location: `top`, `sub`.   Where do you want your main-nav located.   `top` merges it into the top bar, `sub` gives it its own bar. `top` is the default option.
-
+- content-size: The width, in the bootstrap grid system for the main content.  Default is 12 unless there is an aside, in which case the default is 9.
+- aside-size: The width, in the bootstrap grid system for the aside content.  Default is 12 - content_size.
+- aside-location
 
 Make your choice global with:
 
@@ -24,7 +26,7 @@ Make your choice global with:
     </extend>
 
 -->
-<def tag="page" attrs="title, full-title, nav-location, bottom-load-javascript">
+<def tag="page" attrs="title, full-title, nav-location, bottom-load-javascript, aside-location">
   <% full_title ||= "#{title} : #{app_name}" %>
   <html lang="en" merge-attrs>
     <head param>
@@ -69,15 +71,32 @@ Make your choice global with:
             <main-nav class="nav nav-pills" current="&title" include-search param/>
           </div>
         </div>
-        <% attributes[:content_size] = "12" unless attributes[:content_size] 
-        aside_span = "span" + (12 - attributes[:content_size].to_i).to_s
+        <%
+          if all_parameters[:aside]
+            attributes[:content_size] ||= "9"
+            attributes[:aside_size] ||= (12 - attributes[:content_size].to_i).to_s
+            aside_span = "span" + attributes[:aside_size]
+            aside_location ||= 'right'
+          else
+            attributes[:content_size] = "12" unless attributes[:content_size]
+          end
         %>
         <div class="container bootstrap-content" param="container">
           <div class="row" param="main-row">
-            <div class="span#{attributes[:content_size]}" param="main-column">
-              <section with-flash-messages param="content"/>
+            <div class="#{aside_span}" if="&all_parameters[:aside] && aside_location=='left'" param="aside-column">
+              <div class="well">
+                <section param="aside"/>
+              </div>
             </div>
-            <div class="#{aside_span}" if="&attributes[:content_size].to_i < 12" param="aside-column">
+            <div class="span#{attributes[:content_size]}" param="main-column">
+              <section with-flash-messages param="content">
+                <section param="main-content">
+                  <header param="content-header"/>
+                  <section param="content-body"/>
+                </section>
+              </section>
+            </div>
+            <div class="#{aside_span}" if="&all_parameters[:aside] && aside_location=='right'" param="aside-column">
               <div class="well">
                 <section param="aside"/>
               </div>
