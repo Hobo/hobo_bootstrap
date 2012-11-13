@@ -1,0 +1,50 @@
+<!-- Adds a small button to a select in order to create a new record within a modal
+
+Example: I want to create a new project in stories/new.dryml:
+
+  <new-page>
+    <form:>
+      <field-list:>
+        <project-view:><select-one-or-new/></project-view:>
+      </field-list:>
+    </form:>
+  </new-page>
+
+You also need to modify the create action of the new record. projects_controller.rb:
+
+  def create
+    hobo_create {@this = Story.new(:project => @project) if request.xhr?}
+  end
+
+-->
+
+<def tag="select-one-or-new">
+  <!-- Partial -->
+  <div part="select-one-or-new" id="select-one-or-new-#{this_field}" class="pull-left">      
+    <div class="input-append">
+      <select-one/>
+      <!-- Button that triggers the modal -->
+      <a href="#myModal-#{this_field}" role="button" data-toggle="modal" style="margin-top:-5px;" class="btn">+</a>
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div class="modal hide" id="myModal-#{this_field}" tabindex="-1" role="dialog">
+    <formlet with="&this_type.new" update="select-one-or-new-#{this_field}" 
+             complete="$('#myModal-#{this_field}').modal('hide')">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h3 id="myModalLabel"><%= t('hobo.actions.create', :model => this_type.to_s) %></h3>
+      </div>
+      <div class="modal-body">
+        <field-list/>
+      </div>
+      <div class="modal-footer">
+        <submit label="&t('hobo.actions.create', :model => this_type.to_s)"/>
+        <button class="btn" data-dismiss="modal" aria-hidden="true">
+          <%= t('hobo.live_search.close_button') %>
+        </button>
+      </div>
+    </formlet>
+  </div>
+</def>
