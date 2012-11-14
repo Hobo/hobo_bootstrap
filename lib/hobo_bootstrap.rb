@@ -5,7 +5,6 @@ require 'bootstrap-sass'
 require 'will_paginate-bootstrap'
 require 'hobo_rapid'
 require 'hobo_jquery'
-require 'hobo_jquery_ui'
 
 module HoboBootstrap
 
