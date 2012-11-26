@@ -42,6 +42,26 @@ The best way to remove any of the actions is to adjust your permission functions
       </actions-view:>
     </collection:>
 
+You will probably want to add sorting and searching options to your index page.   These are not enabled by default since they require controller support.   To do so, customize your index.dryml like this:
+
+    <index-page>
+      <collection: replace>
+        <table-plus without-page-nav fields="this, quantity, actions">
+          <actions-heading:></actions-heading:>
+          <actions-view:><bootstrap-table-actions/></actions-view:>
+        </table-plus>
+      </collection:>
+    </index-page>
+
+and your controller like this
+
+  def index
+    self.this = Widget.paginate(:page => params[:page]).
+      search(params[:search], :name).
+      order_by(parse_sort_param(:name, :quantity))
+    hobo_index
+  end
+
 %>
 <extend tag="index-page">
   <old-index-page: without-count without-top-page-nav merge>
