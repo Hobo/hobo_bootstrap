@@ -33,8 +33,8 @@ The normal usage is to define your own navigation tag that calls `<navigation>`.
 
 Then in your pages you can call the tag like this
 
- - On the 'red' page: `<sub-nav current="red"/>`
- - On the 'green' page:  `<sub-nav current="green"/>`
+ - On the 'red' page: <`sub-nav current="red"/`>
+ - On the 'green' page:  <`sub-nav current="green"/`>
  - and so on.
 
    -->
@@ -115,9 +115,6 @@ This is a simple tag - just look at the source if you need to know more detail.
         <li class='nav-item' param="log-in"><a href="&login_url"><t key="hobo.actions.login">Log in</t></a></li>
         <li if="&signup_url" class="nav-item" param="sign-up"><a href="&signup_url"><t key="hobo.actions.signup">Sign up</t></a></li>
       </else>
-      
-      
-
     </ul>
   </do>
   </div>
