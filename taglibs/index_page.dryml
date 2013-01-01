@@ -55,12 +55,12 @@ You will probably want to add sorting and searching options to your index page. 
 
 and your controller like this
 
-  def index
-    self.this = Widget.paginate(:page => params[:page]).
-      search(params[:search], :name).
-      order_by(parse_sort_param(:name, :quantity))
-    hobo_index
-  end
+    def index
+      self.this = Widget.paginate(:page => params[:page]).
+        search(params[:search], :name).
+        order_by(parse_sort_param(:name, :quantity))
+      hobo_index
+    end
 
 %>
 <extend tag="index-page">

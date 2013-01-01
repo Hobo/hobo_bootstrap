@@ -33,7 +33,7 @@
 - columns: # of columns.  Default is 1.
 - input-attrs: A ruby hash containing attributes to be merged onto each view.   For example
 
-    <bootstrap-fields fields="foo,bar" input-attrs="&{:class => 'span9'}"/>
+`<bootstrap-fields fields="foo,bar" input-attrs="&{:class => 'span9'}"/>`
 
 is equivalent to:
 
