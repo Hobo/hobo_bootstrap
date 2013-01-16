@@ -107,11 +107,11 @@ And run `bundle`.
 
 Any other theme you find or buy will probably be delivered as CSS or LESS rather than SCSS.   Copy the CSS into a new folder in app/assets/stylesheets, and use like this, replacing *foo* with the name of your theme:
 
-@import "foo/bootstrap.css";
-@import "hobo_bootstrap/hobo_bootstrap_main";
-@import "foo/bootstrap_responsive.css";
-@import "hobo_bootstrap/hobo_bootstrap_responsive";
-@import "hobo_bootstrap/hobo_bootstrap_docs";
+    @import "foo/bootstrap.css";
+    @import "hobo_bootstrap/hobo_bootstrap_main";
+    @import "foo/bootstrap_responsive.css";
+    @import "hobo_bootstrap/hobo_bootstrap_responsive";
+    @import "hobo_bootstrap/hobo_bootstrap_docs";
 
 Complex forms
 =============
