@@ -96,6 +96,7 @@ and your controller like this
           <bootstrap-table-actions/>
         </actions-view:>
       </table>
+      <empty-collection-message param="empty-message"/>
     </collection>
   </old-index-page:>
 </extend>
