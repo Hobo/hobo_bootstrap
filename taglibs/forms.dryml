@@ -70,7 +70,7 @@ is equivalent to:
           <do param="#{field_method}-view">
             <do param="view"><call-tag tag="&tag" param="#{field_method}-tag" merge-attrs="&input_attrs"/></do>
           </do>
-          <p param="#{field_method}-help" class="help-block" if="&tag.to_sym == :input && !this_field_help.blank?">
+          <p param="#{field_method}-help" class="help-block" if='&tag.to_sym == :input && (!this_field_help.blank? || parameters.include?("#{field_method}_help".to_sym))'>
             <%= this_field_help %>
           </p>
         </div>
