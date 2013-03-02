@@ -83,9 +83,9 @@ and your controller like this
           if can_edit?(this.first, field_names[0])
             field_names << "actions"
           end
-          # I assume that field_names contains strings
-          # and that name_attribute returns a symbol
-          field_names.delete(klass.name_attribute)
+          # force to work only with strings
+	  field_names.map!(&:to_s)
+          field_names.delete(klass.name_attribute.to_s)
           field_names.unshift("this")
           field_names = field_names.join(', ')
         end
