@@ -66,7 +66,7 @@ and your controller like this
 <extend tag="index-page">
   <old-index-page: without-count without-top-page-nav merge>
 
-    <new-link: replace/>    
+    <new-link: replace/>
     <content-header: class="well"/>
     <before-heading:>
       <a action="new" to="&model" param="new-link" class="btn pull-right btn-primary">
@@ -83,7 +83,10 @@ and your controller like this
           if can_edit?(this.first, field_names[0])
             field_names << "actions"
           end
-          field_names[0] = "this"
+          # force to work only with strings
+	  field_names.map!(&:to_s)
+          field_names.delete(klass.name_attribute.to_s)
+          field_names.unshift("this")
           field_names = field_names.join(', ')
         end
       %>
