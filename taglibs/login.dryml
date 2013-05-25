@@ -51,7 +51,7 @@
       <if test="&signup_url" class='nav-item'>
         <t key="hobo.support.or">or</t> <a param="signup" href="&signup_url"><t key="hobo.login.signup">Sign up</t></a>
       </if>
-      or <a href="&forgot_password_url" param="forgot-password" if="&forgot_password_url"><t key="hobo.login.forgot_password">Forgot your password?</t></a>
+      <if test="&forgot_password_url">or <a href="&forgot_password_url" param="forgot-password"><t key="hobo.login.forgot_password">Forgot your password?</t></a></if>
     </div>
 
   </form>
