@@ -14,7 +14,7 @@
     <t key="activerecord.errors.template.body">There were problems with the following fields:</t>
     <ul param class="alert-block">
       <% this.errors.to_a.each do |message| -%>
-      <li param><%= message %></li>
+      <li param><%= raw message %></li>
       <% end -%>
     </ul>
   </section>
