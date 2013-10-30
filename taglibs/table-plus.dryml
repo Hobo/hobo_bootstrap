@@ -8,7 +8,7 @@ Adds bootstrap styling to `<table-plus>`
     <search-filter:>
       <search-form: class="form-search" remove-class="form-horizontal" style="display: inline;" />
       <label: replace/>
-      <input: class="search-query" placeholder="Search"/>
+      <input: class="search-query" placeholder="&t('hobo.table_plus.search', :default=>'Search')"/>
       <search-submit: remove-class="btn-primary" class="btn-small"/>
       <clear-form: class="form-search" remove-class="form-horizontal" style="display: inline;"/>
       <clear-submit: class="btn-small"/>
