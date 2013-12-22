@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency('hobo_jquery', ">= 2.0")
   s.add_runtime_dependency "bootstrap-sass", "~> 2.1"
-  s.add_runtime_dependency "will_paginate-bootstrap", "~> 0.2.1"
+  s.add_runtime_dependency "hobo_will_paginate-bootstrap"
 
   s.files = `git ls-files -x #{name}/* -z`.split("\0")
 
