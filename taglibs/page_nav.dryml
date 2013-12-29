@@ -3,5 +3,7 @@ Adds bootstrap styling to `<page-nav>`
 -->
 <extend tag="page-nav">
   <% add_classes!(attributes, "pagination") %>
-  <old-page-nav merge renderer="&BootstrapPagination::Rails"/>
+  <div class="pagination">
+    <old-page-nav merge renderer="&BootstrapPagination::Rails"/>
+  </div>
 </extend>
