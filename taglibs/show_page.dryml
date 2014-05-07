@@ -7,7 +7,7 @@ Adds bootstrap styling to `<show-page>`
 
     <before-heading:>
        <a action="edit" if="&can_edit?" param="edit-link" class="btn pull-right">
-        <ht key="#{model.to_s}.actions.edit">Edit <%= model %></ht>
+        <ht key="#{model.to_s.underscore}.actions.edit">Edit <%= model %></ht>
       </a>
     </before-heading:>
     
