@@ -70,7 +70,7 @@ and your controller like this
     <content-header: class="well"/>
     <before-heading:>
       <a action="new" to="&model" param="new-link" class="btn pull-right btn-primary">
-        <ht key="#{model.to_s}.actions.new">New <%= model %></ht>
+        <ht key="#{model.to_s.underscore}.actions.new">New <%= model %></ht>
       </a>
     </before-heading:>
 
