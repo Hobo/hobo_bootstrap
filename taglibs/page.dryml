@@ -22,7 +22,7 @@ Attributes:
 Make your choice global with:
 
     <extend tag="page">
-      <old-page merge nav-location="sub">
+      <old-page merge nav-location="sub"/>
     </extend>
 
 -->
