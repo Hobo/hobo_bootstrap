@@ -5,6 +5,7 @@ Adds bootstrap styling to `<table-plus>`
   <old-table-plus merge>
     <table: class="table table-striped table-bordered" style="clear: both;"/>
     <header: style="float: right;"/>
+    <actions-view:><bootstrap-table-actions/></actions-view:>
     <search-filter:>
       <search-form: class="form-search" remove-class="form-horizontal" style="display: inline;" />
       <label: replace/>
