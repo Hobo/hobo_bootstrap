@@ -28,7 +28,7 @@ Make your choice global with:
 -->
 <def tag="page" attrs="title, full-title, nav-location, bottom-load-javascript, aside-location">
   <% full_title ||= "#{title} : #{app_name}" %>
-  <html lang="en" merge-attrs>
+  <html lang="#{I18n.locale}" merge-attrs>
     <head param>
       <title param><%= strip_tags full_title %></title>
       <do param="stylesheets"><%# in Hobo <= 1.3, we had other stylesheets here.   Now the asset pipeline is preferred. %>
