@@ -7,7 +7,7 @@
   </do>
   <% if can_delete?(this_parent) %>
     <do param="delete">
-      <a with="&this_parent" action="destroy" method="delete" data-confirm="&t('hobo.messages.confirm', :default=>'Are you sure?')"><i class="icon-trash"></i></a>
+      <a with="&this_parent" action="destroy" method="delete" data-confirm="&t('hobo.messages.confirm_delete', :name => this_parent.to_s, :default=>'Are you sure?')"><i class="icon-trash"></i></a>
     </do>
   <% end %>
 </def>
