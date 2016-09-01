@@ -43,7 +43,7 @@ Make your choice global with:
           </script>
         </do>
       </do>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta name="viewport" param="viewport" content="width=device-width, initial-scale=1.0"/>
       <%= csrf_meta_tag %>
     </head>
 
